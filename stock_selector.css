@@ -1,0 +1,364 @@
+/* 基礎設置與重置 */
+body {
+    font-family: '微軟正黑體', 'Microsoft JhengHei', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f0f7;
+    /* 淺藍色背景，模擬圖片效果 */
+    color: #333;
+}
+
+/* 導航列 */
+.navbar {
+    background-color: #0b3d4f;
+    /* 深藍綠色 */
+    color: white;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.auth a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* 頁面主要容器 */
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.system-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0b3d4f;
+    margin-bottom: 5px;
+}
+
+.mode-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* 內容區：左右佈局 */
+.content-area {
+    display: flex;
+    gap: 40px;
+}
+
+/* 左側欄：推薦組合 (新手) / 自選因子 (老手) */
+.left-panel {
+    flex: 1;
+    /* 佔用約 1/3 空間 */
+    padding-right: 20px;
+    border-right: 1px solid #eee;
+    /* 模擬視覺上的分隔 */
+}
+
+/* --- 新手模式：推薦組合樣式 --- */
+.recommendation-group {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f9fb;
+    /* 淺色背景 */
+    text-align: center;
+}
+
+.recommendation-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3d4f;
+    margin-bottom: 15px;
+}
+
+.combo-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.combo-item p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* 按鈕基礎樣式 */
+.select-btn {
+    background-color: #1a73e8;
+    /* 藍色 */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    /* 平滑過渡 */
+}
+
+/* 鼠標懸停效果：按鈕變暗 */
+.select-btn:hover {
+    background-color: #0d47a1;
+    /* 深藍色 */
+}
+
+/* --- 老手模式：自選因子樣式 --- */
+.factor-selection {
+    padding: 10px 0;
+}
+
+.selected-factors {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #0b3d4f;
+}
+
+.selected-factors span {
+    color: #1a73e8;
+    font-weight: normal;
+    border: 1px solid #1a73e8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #eef2ff;
+}
+
+.factor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 三欄佈局 */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.factor-btn {
+    background-color: #ccc;
+    /* 灰色未選中 */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.factor-btn:hover {
+    background-color: #b0b0b0;
+    /* 懸停變暗 */
+}
+
+.factor-btn.active {
+    background-color: #1a73e8;
+    /* 藍色已選中 */
+    color: white;
+}
+
+.factor-btn.active:hover {
+    background-color: #0d47a1;
+    /* 懸停變更暗藍色 */
+}
+
+/* 右側欄：成果預覽 (表格) */
+.right-panel {
+    flex: 2;
+    /* 佔用約 2/3 空間 */
+    padding-left: 20px;
+}
+
+.preview-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b3d4f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 表格樣式 */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.results-table th,
+.results-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 表格標頭 */
+.results-table thead th {
+    background-color: #008080;
+    /* 接近圖片中的深綠色 */
+    color: white;
+    font-weight: bold;
+}
+
+/* 表格偶數行背景色 */
+.results-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* 表格鼠標懸停效果 */
+.results-table tbody tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* 詳細按鈕 */
+.detail-btn-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.detail-btn {
+    background-color: #80c0d0;
+    /* 淺藍綠色 */
+    color: #0b3d4f;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.detail-btn:hover {
+    background-color: #60a0b0;
+    /* 懸停變暗 */
+}
+
+/* 頁腳 */
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+    border-top: 1px solid #eee;
+}
+
+.footer-links a {
+    color: #777;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* 僅用於示範：切換新手/老手模式的開關 */
+.mode-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 根據類名切換新手/老手介面 */
+.newbie-mode .mode-title::before {
+    content: "新手";
+}
+
+.expert-mode .mode-title::before {
+    content: "老手";
+}
+
+.newbie-mode .factor-selection {
+    display: none;
+}
+
+.expert-mode .recommendation-group-list {
+    display: none;
+}
+
+header {
+    background-color: #006d77;
+    color: #F5FCFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #F5FCFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.auth a {
+    color: #F5FCFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer {
+  position: fixed;   /* 固定在畫面底部 */
+  bottom: 0;         /* 貼齊底部 */
+  left: 0;           /* 貼齊左邊 */
+  width: 100%;       /* 撐滿整個寬度 */
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.container {
+    padding-bottom: 60px; /* 大約與 footer 高度一致 */
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}

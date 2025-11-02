@@ -1,0 +1,128 @@
+* {
+  font-weight: 400; /* regular */
+  font-family: "regular", "Microsoft JhengHei", sans-serif; /* 可依需求換字體 */
+}
+
+
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #E3F2FD, #A3DAFF);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.page-wrapper {
+  max-width: 1200px;         /* 框最大寬度 */
+  margin: 40px auto;         /* 垂直間距 + 水平置中 */
+  background: rgba(249, 255, 255, 0.95); /* 半透明白色背景 */
+  border-radius: 16px;       /* 圓角 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 陰影 */
+  padding: 20px 30px;        /* 內邊距 */
+}
+
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  max-width: 1100px;
+  gap: 30px;
+  padding-bottom: 100px; /* ← 預留空間避免被 footer 蓋住 */
+}
+
+
+.section {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  min-width: 300px;
+}
+
+h2 {
+  font-size: 22px;
+  border-left: 5px solid #006d75;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+ul {
+  line-height: 1.8;
+  padding-left: 20px;
+}
+
+footer {
+  position: fixed;          /* 固定在畫面上 */
+  bottom: 0;                /* 貼齊底部 */
+  left: 0;
+  width: 100%;              /* 佔滿整個畫面寬度 */
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  z-index: 100;             /* 確保不被其他內容蓋住 */
+}
+
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}
+
+.top-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #004f52;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多因子智慧選股系統</title>
+    <link rel="stylesheet" href="stock_selector.css">
+</head>
+
+<body class="newbie-mode" id="page-body"> <!-- 導覽列 -->
+    <header>
+        <nav>
+            <a href="main.html">首頁</a>
+            <a href="sort.html">股票分類</a>
+            <a href="stock.html">股票</a>
+
+        </nav>
+        <div class="auth">
+            <a href="login.html">註冊/登入</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="header">
+            <h1 class="system-title">多因子智慧選股系統</h1>
+            <h2 class="mode-title"></h2>
+        </div>
+        <div class="mode-toggle"> <button onclick="toggleMode('newbie')" class="select-btn"
+                style="margin-right: 10px;">切換到新手模式</button> <button onclick="toggleMode('expert')"
+                class="select-btn">切換到老手模式</button> </div>
+        <div class="content-area">
+            <div class="left-panel">
+                <div class="recommendation-group-list">
+                    <div class="recommendation-title">推薦組合</div>
+                    <div class="combo-item">
+                        <p>投資組合一:</p>
+                        <p>ROE + 本益比</p> <button class="select-btn">選擇它</button>
+                    </div>
+                    <div class="combo-item">
+                        <p>投資組合二:</p>
+                        <p>股價營收比 + 單月營收成長率</p> <button class="select-btn">選擇它</button>
+                    </div>
+                    <div class="combo-item">
+                        <p>投資組合三:</p>
+                        <p>市值比重 + 董監持股</p> <button class="select-btn">選擇它</button>
+                    </div>
+                </div>
+                <div class="factor-selection hidden">
+                    <div class="selected-factors"> 已選因子: <span>股價營收比</span> <span>單月營收成長率</span> </div>
+                    <div class="factor-grid"> <button class="factor-btn active">股價營收比</button> <button
+                            class="factor-btn active">單月營收成長率</button> <button class="factor-btn">ROE</button> <button
+                            class="factor-btn">市值比重</button> <button class="factor-btn">董監持股</button> <button
+                            class="factor-btn">本益比</button> <button class="factor-btn">現金股利率</button> <button
+                            class="factor-btn">市盈率</button> <button class="factor-btn">資產收益率</button> <button
+                            class="factor-btn">市淨率</button> </div>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="preview-title">成果預覽</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>公司代碼</th>
+                            <th>公司</th>
+                            <th>本益比排名</th>
+                            <th>現金股利率排名</th>
+                            <th>分數</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2603</td>
+                            <td>2603長榮</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3034</td>
+                            <td>3034聯詠</td>
+                            <td>12</td>
+                            <td>3</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>4938</td>
+                            <td>4938和碩</td>
+                            <td>10</td>
+                            <td>6</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>2891</td>
+                            <td>2891中信金</td>
+                            <td>3</td>
+                            <td>15</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>3231</td>
+                            <td>3231緯創</td>
+                            <td>13</td>
+                            <td>7</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>2882</td>
+                            <td>2882國泰金</td>
+                            <td>2</td>
+                            <td>19</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>2301</td>
+                            <td>2301光寶科</td>
+                            <td>19</td>
+                            <td>5</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>2303</td>
+                            <td>2303聯電</td>
+                            <td>15</td>
+                            <td>9</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>2357</td>
+                            <td>2357華碩</td>
+                            <td>22</td>
+                            <td>4</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>2317</td>
+                            <td>2317鴻海</td>
+                            <td>9</td>
+                            <td>17</td>
+                            <td>26</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="detail-btn-container"> <button class="detail-btn">詳 細 →</button> </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div>©2025 投資資訊組 保留所有權利.</div>
+    <div class="footer-links">
+      <a href="#">常見問題</a>
+      <a href="https://www.facebook.com/bai.mo.li.96081">聯絡我們</a>
+      <a href="https://www.facebook.com/bai.mo.li.96081">社群連結</a>
+    </div>
+  </footer>
+    <script>
+        /** * 切換新手 (newbie) 和老手 (expert) 模式的介面 * 實際應用中，這會透過後端或路由來實現 * @param {string} mode - 'newbie' 或 'expert' */
+        function toggleMode(mode) {
+            const body = document.getElementById('page-body');
+            const recommendationList = document.querySelector('.recommendation-group-list');
+            const factorSelection = document.querySelector('.factor-selection');
+            if (mode === 'newbie') {
+                body.className = 'newbie-mode';
+                recommendationList.classList.remove('hidden');
+                factorSelection.classList.add('hidden');
+            } else if (mode === 'expert') {
+                body.className = 'expert-mode';
+                recommendationList.classList.add('hidden');
+                factorSelection.classList.remove('hidden');
+            }
+        }
+        // 頁面載入時，確保老手模式的因子按鈕可以點擊 document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.factor-btn').forEach(button => { button.addEventListener('click', function() { // 這裡只是簡單切換 active 狀態 this.classList.toggle('active'); }); }); // 確保頁面加載時顯示正確的標題 (預設為新手) toggleMode('newbie'); }); </script>
+</body>
+
+</html>

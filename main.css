@@ -1,0 +1,146 @@
+
+/* 全域設定 */
+* {
+  font-weight: 400; /* regular */
+  font-family: "regular", "Microsoft JhengHei", sans-serif; /* 可依需求換字體 */
+}
+
+
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #E3F2FD, #A3DAFF);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 導覽列 */
+header {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 主內容置中 */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中 */
+  align-items: center;     /* 水平置中 */
+  text-align: center;
+  padding: 20px;
+}
+
+main h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+main p {
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+/* 左右分組 */
+.btn-groups {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* 左右間距 */
+  flex-wrap: wrap;
+}
+
+.btn-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* 按鈕 */
+button {
+  background-color: #005F6B;
+  color: #F5FCFF;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap; /* 不換行 */
+}
+
+button:hover {
+  background-color: #004f56;
+}
+
+/* 頁尾 */
+footer {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;               /* 改用 Flexbox */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  gap: 30px;                   /* 文字與連結之間的間距 */
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;             /* 螢幕太窄時換行 */
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}
+
+
+/* 📱 RWD 響應式設計 */
+@media (max-width: 768px) {
+  .btn-groups {
+    flex-direction: column;  /* 手機改上下排列 */
+    gap: 40px;              /* 上下間距 */
+  }
+
+  .btn-row {
+    flex-wrap: wrap;        /* 按鈕太長時自動換行 */
+    justify-content: center;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+}

@@ -1,0 +1,221 @@
+
+:root {
+  --teal: #0f6b6b;
+  --teal-dark: #0b5a5a;
+  --bg: #e6f6fb;
+  --muted: #7f9aa3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  background: linear-gradient(180deg, #e6f2f7, #cfeef9);
+  color: #08313a;
+
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 內容區塊 */
+.page-wrapper {
+  flex: 1; /* 讓 page-wrapper 撐滿剩餘空間 */
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;  /* 或 100% */
+max-width: none;
+}
+
+/* container */
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 36px 48px;
+  align-items: flex-start;
+}
+
+/* 左側面板 */
+.left-panel {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.left-panel h3 {
+  margin-top: 0;
+  color: var(--teal-dark);
+  font-size: 20px;
+}
+
+.factor-group {
+  margin-bottom: 18px;
+}
+
+.factor-group h4 {
+  margin: 6px 0;
+  color: #123;
+  font-size: 16px;
+}
+
+.pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.pill {
+  background: var(--teal);
+  color: #fff;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.pill.active {
+  background: #0d8d8d;
+  box-shadow: 0 6px 12px rgba(13, 141, 141, 0.16);
+}
+
+/* 右側內容 */
+.content {
+  flex: 1;
+}
+
+.title-area {
+  text-align: center;
+  padding: 18px;
+}
+
+.title-area h1 {
+  margin: 6px 0 6px;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.title-area h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: var(--muted);
+}
+
+.factor-pill {
+  display: inline-block;
+  background: #dbeff4;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #123;
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.02);
+}
+
+.detail-area {
+  margin-top: 18px;
+}
+
+.detail-area h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.detail-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 18px;
+  border-radius: 10px;
+  line-height: 1.6;
+  color: #15393f;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+.detail-box ul {
+  padding-left: 18px;
+}
+
+/* footer */
+footer {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}
+
+/* 響應式 */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column; /* 左右改上下排列 */
+    padding: 20px;
+  }
+
+  .left-panel {
+    width: 100%;
+    order: 1; /* pill 按鈕跑到上面 */
+    margin-bottom: 20px; /* 與內容分隔 */
+  }
+
+  .content {
+    order: 2; /* 內容在下方 */
+  }
+
+  .title-area h1 {
+    font-size: 26px;
+  }
+
+  .pill-grid {
+    grid-template-columns: 1fr 1fr; /* 可保留兩列，如果螢幕更窄可改 1fr */
+  }
+}
