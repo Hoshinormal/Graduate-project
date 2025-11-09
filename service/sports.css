@@ -1,0 +1,253 @@
+header {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+footer {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;               /* 改用 Flexbox */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  gap: 30px;                   /* 文字與連結之間的間距 */
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;             /* 螢幕太窄時換行 */
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}
+/* ========== 1) 變數 / tokens ========== */
+:root{
+  --semic-primary:#076585;
+  --semic-accent:#2aa198;
+  --card-radius:16px;
+  --card-shadow:0 10px 28px rgba(0,0,0,.10);
+  --glow-yellow:#FFD36E;
+  --glow-yellow-soft:#FFE59A;
+}
+
+/* ========== 2) 首屏（Hero） ========== */
+.hero{ text-align:center; margin-bottom:20px; animation:hero-in .55s ease both; }
+.hero h1{ margin:0; font-size:32px; color:#03485A; letter-spacing:1px; }
+.hero .subtitle{ margin:6px 0 0; font-size:20px; color:var(--semic-primary); opacity:.9; }
+@keyframes hero-in{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+
+/* ========== 返回上一頁連結 ========== */
+.back-link { margin: 0 0 16px; }
+.back-link a {
+  display: inline-block; padding: 8px 14px; background: #eef7fb; border: 1px solid #b9d9ea;
+  border-radius: 10px; color: #076585; font-size: 14px; text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.back-link a:hover { background: #d7edf6; transform: translateY(-1px); }
+
+/* ========== 3) 功能列表（1/2/3） ========== */
+.feature-list{
+  margin:0 0 14px; padding:14px 16px; background:#eef7fb; border:1px dashed #b9d9ea;
+  border-radius:14px; color:#40606F; line-height:1.75; font-size:14px;
+}
+.feature-list ol{ margin:0; padding-left:22px; }
+.feature-list li{ margin:6px 0; }
+.feature-list code{ background:#e9f6ff; border:1px solid #cfe7f4; padding:1px 6px; border-radius:6px; }
+
+/* ========== 半導體產業介紹方框 ========== */
+.industry-intro {
+  margin: 0 0 18px; padding: 18px 20px; background: #fffdf4; border: 1px solid #f3e6b3;
+  border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #53491f; line-height: 1.75;
+}
+.industry-intro h2 { margin-top: 0; font-size: 20px; color: #8a6d00; margin-bottom: 8px; }
+.industry-intro p { margin: 6px 0; font-size: 15px; }
+
+/* ========== 4) 表格外框 ========== */
+.table-wrapper{ background:#fff; border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:18px; overflow:auto; }
+
+/* ========== 5) 表頭（含提示） ========== */
+.stock-table{ width:100%; border-collapse:separate; border-spacing:0; }
+.stock-table thead th{
+  position:sticky; top:0; z-index:2;
+  background:linear-gradient(180deg,#e6f3f8,#d7edf6);
+  color:#044a5e; font-weight:700; padding:12px 14px; white-space:nowrap;
+  border-bottom:1px solid #cbe3ee; box-shadow:inset 0 -1px 0 #cbe3ee;
+  cursor:pointer; user-select:none;
+}
+/* 欄位提示（滑上 th 顯示 data-tip） */
+.stock-table thead th:hover::after{
+  content:attr(data-tip);
+  position:absolute; left:50%; top:100%; transform:translate(-50%,8px);
+  background:#073642; color:#fff; font-size:12px; line-height:1.2;
+  padding:6px 8px; border-radius:8px; white-space:nowrap; box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+.stock-table thead th:hover::before{
+  content:""; position:absolute; left:50%; top:100%; transform:translate(-50%,2px);
+  border:6px solid transparent; border-bottom-color:#073642;
+}
+
+/* ========== 6) 列與儲存格 ========== */
+.stock-table td{ padding:12px 14px; border-bottom:1px solid #E8EFF3; color:#0b3a4a; }
+.stock-table tbody tr:nth-child(odd){ background:#fbfeff; }
+.stock-table tbody tr:hover{ background:#f0fbff; }
+
+/* ========== 7) 通用對齊（語意 class） ========== */
+td.num, th.num{ text-align:right; font-variant-numeric:tabular-nums; }
+td.code, th.code{ text-align:right; white-space:nowrap; }
+td.center, th.center{ text-align:center; }
+
+/* 無資料(#DIV/0!) */
+.num-na{ color:#8797a2; font-style:italic; }
+.num-na::after{ content:"—"; }
+
+/* ========== 8) 一般排序高亮（原有樣式，供 JS 掛 class） ========== */
+.stock-table thead th.sorted-asc,
+.stock-table thead th.sorted-desc{
+  background:linear-gradient(180deg,#d9f3ff,#c9ecff); color:#00465a;
+  box-shadow:inset 0 -2px 0 var(--semic-accent), 0 0 0 2px rgba(42,161,152,.1);
+}
+.stock-table thead th.sorted-asc::after{ content:"▲"; margin-left:6px; color:var(--semic-accent); }
+.stock-table thead th.sorted-desc::after{ content:"▼"; margin-left:6px; color:var(--semic-accent); }
+
+/* ========== 9) 欄位排序彈出層（一次只能選一欄） ========== */
+th{ position:relative; }       /* 讓 z-index 生效 */
+th.th-active{ z-index:4; }
+
+.sort-pop{
+  position:absolute; left:50%; top:calc(100% + 6px); transform:translateX(-50%);
+  background:#fff; border-radius:14px; padding:6px;
+  box-shadow: 0 2px 0 #e6f2f8 inset, 0 0 0 1px #d6e9f3, 0 14px 32px rgba(9,30,66,.18);
+  display:flex; gap:6px; align-items:center; z-index:50; animation:sp-pop .12s ease both;
+}
+@keyframes sp-pop{ from{ opacity:0; transform:translateY(-4px) scale(.98); } to{ opacity:1; transform:translateY(0) scale(1); } }
+.sort-pop .sp-btn{
+  appearance:none; cursor:pointer; background:#fff; border:1px solid #d6e9f3; border-radius:12px;
+  padding:10px 14px; font-size:14px; line-height:1; transition:transform .08s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.sort-pop .sp-btn:hover{ transform:translateY(-1px); background:#f4fbff; border-color:#c7e3ef; box-shadow:0 6px 14px rgba(0,0,0,.10); }
+.sort-pop .sp-danger{ color:#122a3a; }
+
+/* ========== 10) 不可排序表頭（無按鈕） ========== */
+th.not-sort{ cursor:default; }
+th.not-sort.sorted-asc, th.not-sort.sorted-desc{ box-shadow:none !important; }
+
+/* ========== 11) 捲軸 ========== */
+.table-wrapper::-webkit-scrollbar{ height:10px; width:10px; }
+.table-wrapper::-webkit-scrollbar-thumb{ background:#cfe7f2; border-radius:999px; border:2px solid #eff7fb; }
+.table-wrapper::-webkit-scrollbar-track{ background:#f6fbfe; border-radius:999px; }
+
+/* 會員功能按鈕 */
+.mf-btn{
+  display:inline-block; padding:10px 16px; margin:6px 0;
+  background:#eef7fb; border:1px solid #b9d9ea; border-radius:10px;
+  color:#076585; font-size:14px; cursor:pointer;
+  transition:background 0.2s ease, transform 0.1s ease;
+}
+.mf-btn:hover{ background:#d7edf6; transform:translateY(-1px); }
+.mf-btn.danger{ background:#ffeaea; border-color:#ffb3b3; color:#b30000; }
+
+/* 權重面板 */
+.weight-panel{
+  margin:12px 0 18px; padding:16px; background:#fdfdfd;
+  border:1px solid #cfdfea; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.weight-panel h3{ margin:0 0 8px; font-size:18px; color:#044a5e; }
+.factor-list{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0; }
+.factor{
+  padding:8px 12px; border:1px solid #c7e3ec; border-radius:8px;
+  background:#eef7fb; cursor:pointer; font-size:14px; color:#044a5e;
+}
+.factor input{ width:40px; margin-left:6px; display:none; }
+.factor.active input{ display:inline-block; }
+
+.factor.active{ background:#c9ecff; border-color:#2aa198; }
+.factor.low-better::after{ content:"(低佳)"; margin-left:4px; font-size:12px; color:#b76b00; }
+
+.mf-actions{ margin-top:12px; display:flex; gap:10px; }
+.mf-note{ font-size:13px; color:#555; margin-top:12px; }
+.mf-note .low{ color:#b76b00; font-weight:bold; }
+
+/* 排名顏色（金銀銅） */
+tr.rank-1{ background:#fff7cc !important; }
+tr.rank-2{ background:#e8f2ff !important; }
+tr.rank-3{ background:#f3e6ff !important; }
+
+/* ========== 強調主按鈕 ========== */
+.mf-btn.primary{ background:#076585; color:#fff; border-color:#06506a; }
+.mf-btn.primary:hover{ background:#044a5e; }
+
+/* 推薦組合區塊調整 */
+.mf-note p.combo{ font-size:15px; margin:8px 0; }
+.mf-note p.combo button{
+  margin-left:8px; padding:4px 8px; font-size:13px; border-radius:6px; cursor:pointer;
+  border:1px solid #b9d9ea; background:#eef7fb; color:#044a5e;
+}
+.mf-note p.combo button:hover{ background:#d7edf6; }
+
+/* ========== 12) 會員因子高亮徽章（不與 tooltip 的 ::before/::after 衝突，改用元素） ========== */
+.stock-table thead th.mf-active{
+  background:linear-gradient(180deg,#fff7dd,#ffeebb);
+  box-shadow:inset 0 -2px 0 var(--glow-yellow), 0 0 0 2px var(--glow-yellow-soft);
+}
+.stock-table thead th .mf-badge{
+  position:absolute; right:8px; top:8px;
+  font-size:12px; line-height:1; padding:4px 6px; border-radius:999px;
+  background:#fff; border:1px solid #f0c96a; color:#7b4b00;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.stock-table thead th .mf-badge .low-flag{
+  display:inline-block; margin-left:6px; font-size:11px; padding:2px 6px; border-radius:999px;
+  background:#fff3d0; border:1px solid #f0c96a; color:#a06800;
+}
+
+/* ========== 13) 表格滑動提示（置中偏上） ========== */
+.scroll-hint {
+  position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
+  background: rgba(7,101,133,0.9); color: #fff; padding: 10px 18px; border-radius: 999px;
+  font-size: 15px; box-shadow: 0 6px 20px rgba(0,0,0,.25); opacity: 0; pointer-events: none;
+  animation: fadeInOutCenter 4s ease forwards;
+}
+@keyframes fadeInOutCenter {
+  0% { opacity: 0; transform: translate(-50%, -20px); }
+  10%, 80% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, 20px); }
+}
+
+/* ========== 14) RWD（僅本頁必要） ========== */
+@media (max-width:1024px){
+  .hero h1{ font-size:28px; }
+  .hero .subtitle{ font-size:18px; }
+}
+@media (max-width:720px){
+  .table-wrapper{ padding:12px; }
+  .stock-table thead th, .stock-table td{ padding:10px 12px; }
+  .hero h1{ font-size:24px; }
+  .hero .subtitle{ font-size:16px; }
+}
+@media (max-width:420px){
+  .stock-table thead th, .stock-table td{ font-size:13px; }
+}

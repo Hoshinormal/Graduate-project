@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>多因子智慧選股系統｜運動休閒</title>
+  <link rel="stylesheet" href="../test.css" />
+  <link rel="stylesheet" href="sports.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../main.html">首頁</a>
+      <a href="../sort.html">股票分類</a>
+      
+    </nav>
+    <div class="auth">
+      <a href="../login.html">註冊/登入</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>多因子智慧選股系統</h1>
+      <p class="subtitle">運動休閒分類</p>
+    </section>
+
+    <div class="back-link">
+      <a href="../sort.html">← 返回股票分類總覽</a>
+    </div>
+
+    <!-- 功能說明 -->
+    <section class="feature-list">
+      <ol>
+        <li><b>點欄位即可排序：</b>點一次表格表頭顯示<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。預設依「公司代碼」由小到大。</li>
+        <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位計算方式或意義，方便快速理解。</li>
+        <li><b>會員功能（暫時）：</b>可選兩個因子與 1～5 權重計分，新增「得分」欄位供排序。</li>
+      </ol>
+    </section>
+
+    <!--  運動休閒產業介紹方框 -->
+    <section class="industry-intro">
+      <h2>運動休閒產業簡介</h2>
+      <p>
+        運動休閒產業涵蓋各類運動器材、服飾及相關服務的生產與銷售，廣泛應用於個人健身、團體運動及戶外活動等領域。
+        台灣運動休閒產業具有完整的供應鏈與設計能力，主要產品包括運動鞋服、健身器材及戶外裝備。
+        近年來，隨著健康意識的提升與生活方式的改變，運動休閒產業呈現穩定增長趨勢。
+      </p>
+      <p>
+        <b>評價：</b>運動休閒產業受益於健康生活風潮與政府推動的體育活動，市場需求持續增長。
+        然而，產業競爭激烈，品牌忠誠度與產品創新是關鍵成功因素。投資者應關注企業的市場定位與行銷策略。
+      </p>
+    </section>
+
+    <!-- 會員功能：多因子權重設定（獨立區塊，不與表格同容器） -->
+    <section class="member-feature">
+      <button id="toggle-weight-panel" class="mf-btn">
+        會員功能：多因子權重設定
+      </button>
+
+      <div id="weight-panel" class="weight-panel" style="display:none;">
+        <h3>多因子權重設定</h3>
+        <p>請從下方欄位中選擇 <b>兩個因子</b>，並設定權重（1～5）。</p>
+
+        <div class="factor-list">
+          <div class="factor" data-col="3">ROE(A)－稅後 <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor" data-col="4">營收成長率 <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor" data-col="5">稅後淨利成長率 <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor" data-col="6">自由現金流量(D) <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor" data-col="7">10日均價(元) <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor low-better" data-col="8">本益比-TEJ (P/E) <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor low-better" data-col="9">股價淨值比-TEJ (P/B) <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+          <div class="factor" data-col="10">現金股利率 <input type="number" min="1" max="5" step="1" inputmode="numeric" pattern="[1-5]" value="1"></div>
+        </div>
+
+        <div class="mf-actions">
+          <button id="apply-weight" class="mf-btn primary">開始計算</button>
+          <button id="reset-weight" class="mf-btn danger">重設</button>
+        </div>
+
+        <div class="mf-note">
+          <p><b>計算方式：</b>每個因子由低到高排名 1～N 分（N=股票數）。若為 <span class="low">越低越好</span> 的因子（P/E、P/B），則排名反轉。最終分數 = Σ(名次 × 權重)。</p>
+
+          <p class="combo">推薦組合 1：ROE(A)－稅後 ×3 ＋ 本益比-TEJ ×2
+            <button class="apply-combo" data-cols="3:3,8:2">套用</button>
+          </p>
+          <p class="combo">推薦組合 2：營收成長率 ×3 ＋ 稅後淨利成長率 ×2
+            <button class="apply-combo" data-cols="4:3,5:2">套用</button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 表格區塊（獨立包在自己的 .table-wrapper） -->
+    <section>
+      <div class="table-wrapper">
+        <table class="stock-table" aria-label="運動休閒類股清單">
+          <thead>
+            <tr>
+              <th class="center not-sort" data-tip="此欄僅顯示目前排序順位">排序</th>
+              <th class="num code" data-tip="台灣上市公司代碼">公司代碼</th>
+              <th class="name not-sort" data-tip="公司中文名稱">公司名稱</th>
+              <th class="num" data-tip="股東權益報酬率（稅後）；越高通常代表運用資本效率越佳">ROE(A)－稅後</th>
+              <th class="num" data-tip="最近期間營收年增率（%）">營收成長率</th>
+              <th class="num" data-tip="最近期間稅後淨利年增率（%）">稅後淨利成長率</th>
+              <th class="num" data-tip="自由現金流量（千元或元，以資料源為準）">自由現金流量(D)</th>
+              <th class="num" data-tip="近10日平均收盤價（元）">10日均價(元)</th>
+              <th class="num" data-tip="本益比（TEJ 定義）">本益比-TEJ (P/E)</th>
+              <th class="num" data-tip="股價淨值比（TEJ 定義）">股價淨值比-TEJ (P/B)</th>
+              <th class="num" data-tip="現金股利 / 價格（%）">現金股利率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center">1</td>
+              <td class="num code">2303</td>
+              <td class="name">聯電</td>
+              <td class="num">2.22</td>
+              <td class="num">4.68</td>
+              <td class="num">-30.77</td>
+              <td class="num">26,582,619</td>
+              <td class="num">43.74</td>
+              <td class="num">11.27</td>
+              <td class="num">1.45</td>
+              <td class="num">6.61</td>
+            </tr>
+            <tr>
+              <td class="center">2</td>
+              <td class="num code">2330</td>
+              <td class="name">台積電</td>
+              <td class="num">8.35</td>
+              <td class="num">40.13</td>
+              <td class="num">60.34</td>
+              <td class="num">214,797,280</td>
+              <td class="num">1,044.16</td>
+              <td class="num">24.07</td>
+              <td class="num">6.56</td>
+              <td class="num">1.64</td>
+            </tr>
+            <tr>
+              <td class="center">3</td>
+              <td class="num code">2344</td>
+              <td class="name">華邦電</td>
+              <td class="num">-1.35</td>
+              <td class="num">-1.41</td>
+              <td class="num">-234.0</td>
+              <td class="num">-2,168,121.5</td>
+              <td class="num">17.74</td>
+              <td class="num num-na"></td>
+              <td class="num">0.94</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td class="center">4</td>
+              <td class="num code">2379</td>
+              <td class="name">瑞昱</td>
+              <td class="num">9.25</td>
+              <td class="num">20.36</td>
+              <td class="num">20.63</td>
+              <td class="num">10,659,480</td>
+              <td class="num">542.6</td>
+              <td class="num">18.72</td>
+              <td class="num">5.97</td>
+              <td class="num">4.48</td>
+            </tr>
+            <tr>
+              <td class="center">5</td>
+              <td class="num code">2408</td>
+              <td class="name">南亞科</td>
+              <td class="num">-1.88</td>
+              <td class="num">-9.13</td>
+              <td class="num">-232.12</td>
+              <td class="num">-4,584,368</td>
+              <td class="num">41.81</td>
+              <td class="num num-na"></td>
+              <td class="num">0.85</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td class="center">6</td>
+              <td class="num code">2454</td>
+              <td class="name">聯發科</td>
+              <td class="num">7.28</td>
+              <td class="num">16.52</td>
+              <td class="num">0.71</td>
+              <td class="num">705</td>
+              <td class="num">1,395.69</td>
+              <td class="num">21.0</td>
+              <td class="num">5.43</td>
+              <td class="num">3.98</td>
+            </tr>
+            <tr>
+              <td class="center">7</td>
+              <td class="num code">3661</td>
+              <td class="name">世芯-KY</td>
+              <td class="num">3.53</td>
+              <td class="num">-16.36</td>
+              <td class="num">1.185</td>
+              <td class="num">3,705,226.5</td>
+              <td class="num">3,111.5</td>
+              <td class="num">41.51</td>
+              <td class="num">6.71</td>
+              <td class="num">1.22</td>
+            </tr>
+            <tr>
+              <td class="center">8</td>
+              <td class="num code">3711</td>
+              <td class="name">日月光投控</td>
+              <td class="num">2.33</td>
+              <td class="num">9.53</td>
+              <td class="num">12.87</td>
+              <td class="num">3,195,527.5</td>
+              <td class="num">153.51</td>
+              <td class="num">24.67</td>
+              <td class="num">2.18</td>
+              <td class="num">3.46</td>
+            </tr>
+            <tr>
+              <td class="center">9</td>
+              <td class="num code">6239</td>
+              <td class="name">力成</td>
+              <td class="num">2.01</td>
+              <td class="num">-11.63</td>
+              <td class="num">-34.98</td>
+              <td class="num">5,444,443</td>
+              <td class="num">123.44</td>
+              <td class="num">15.88</td>
+              <td class="num">1.67</td>
+              <td class="num">5.67</td>
+            </tr>
+            <tr>
+              <td class="center">10</td>
+              <td class="num code">6415</td>
+              <td class="name">矽力-KY</td>
+              <td class="num">1.42</td>
+              <td class="num">2.73</td>
+              <td class="num">200.11</td>
+              <td class="num">1,831,147</td>
+              <td class="num">385.13</td>
+              <td class="num">59.76</td>
+              <td class="num">4.052</td>
+              <td class="num">0.66</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+<script src="sports.js">
+</script>
+
+  <footer>
+    <div>©2025 投資資訊組 保留所有權利.</div>
+    <div class="footer-links">
+      <a href="#">常見問題</a>
+      <a href="https://www.facebook.com/bai.mo.li.96081">聯絡我們</a>
+      <a href="https://www.facebook.com/bai.mo.li.96081">社群連結</a>
+    </div>
+  </footer>
+</body>
+</html>
