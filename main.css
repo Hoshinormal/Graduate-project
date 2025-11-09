@@ -56,22 +56,34 @@ main {
 }
 
 main h1 {
-  font-size: 28px;
+  font-size: 5rem;
   font-weight: 700;
   margin-bottom: 15px;
+  min-width: 100vw;
 }
 
 main p {
-  font-size: 18px;
-  margin-bottom: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 15vh;
+  min-width: 100vw;
+}
+main a{
+   text-decoration:none;
+   color: white;
+}
+span{
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 /* 左右分組 */
 .btn-groups {
   display: flex;
   justify-content: center;
-  gap: 100px; /* 左右間距 */
+  gap: 30vw; /* 左右間距 */
   flex-wrap: wrap;
+  margin-top: 30px;
+  min-width: 100vw;
 }
 
 .btn-section {
@@ -79,6 +91,7 @@ main p {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  font-size: 18px;
 }
 
 .btn-row {
@@ -92,8 +105,9 @@ button {
   color: #F5FCFF;
   border: none;
   border-radius: 25px;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 12px 20px;
+  /* font-size: 24px; */
+  font-size: 1.2rem;
   cursor: pointer;
   transition: background 0.3s;
   white-space: nowrap; /* 不換行 */
