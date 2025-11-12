@@ -1,0 +1,72 @@
+html,body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* header */
+header {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth a {
+  color: #F5FCFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+/* body */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* footer */
+
+footer {
+  background-color: #006d77;
+  color: #F5FCFF;
+  display: flex;              
+  justify-content: center;     
+  align-items: center;         
+  text-align: center;
+  gap: 30px;                   /* 文字與連結之間的間距 */
+  padding: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;             
+}
+
+.footer-links {
+  display: flex;
+  text-align: center;
+  gap: 20px;
+}
+
+footer a {
+  color: #F5FCFF;
+  text-decoration: none;
+}
