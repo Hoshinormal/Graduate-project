@@ -1,0 +1,552 @@
+const pills = document.querySelectorAll('.pill');
+const currentFactor = document.getElementById('current-factor');
+const detailBox = document.getElementById('detail-box');
+
+// 因子詳細資料（每個股票）
+const factorDetails = {
+    '2330台積電': {
+        price: '560',
+        industry: '半導體',
+        short: '全球最大的晶圓代工廠',
+        feature: '技術領先、市場占有率高',
+        taiwan50: '8.5%',
+        trend: '長期穩健成長',
+        chart: '<img src="img/2330.png" style="max-width:100%;height:auto;" />',
+        url: 'https://www.tsmc.com'
+    },
+    '2887台新新光金': {
+        price: '25',
+        industry: '金融業',
+        short: '以銀行及保險業務為主的金融集團',
+        feature: '資本穩健、金融服務多元',
+        taiwan50: '1.5%',
+        trend: '推動數位金融與海外布局',
+        chart: '<img src="charts/2887.png" alt="2887 台新新光金股價圖">',
+        url: 'https://www.taishin.com.tw'
+    },
+    '2891中信金': {
+        price: '30',
+        industry: '金融業',
+        short: '中信金控',
+        feature: '穩健經營',
+        taiwan50: '1.8%',
+        trend: '穩定',
+        chart: '-',
+        url: '#'
+    },
+    '2883凱基金': {
+        price: '20',
+        industry: '金融業',
+        short: '凱基金控',
+        feature: '多元業務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2884玉山金': {
+        price: '22',
+        industry: '金融業',
+        short: '玉山金控',
+        feature: '銀行與證券業務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2317鴻海': {
+        price: '105',
+        industry: '電子',
+        short: '全球代工巨頭',
+        feature: '製造能力強',
+        taiwan50: '4.2%',
+        trend: '成長穩健',
+        chart: '-',
+        url: 'https://www.foxconn.com'
+    },
+    '2890永豐金': {
+        price: '15',
+        industry: '金融業',
+        short: '永豐金控',
+        feature: '銀行與證券',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2886兆豐金': {
+        price: '28',
+        industry: '金融業',
+        short: '兆豐金控',
+        feature: '銀行及保險',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2303聯電': {
+        price: '60',
+        industry: '半導體',
+        short: '晶圓代工',
+        feature: '穩定技術',
+        taiwan50: '1.2%',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.umc.com'
+    },
+    '2002中鋼': {
+        price: '30',
+        industry: '鋼鐵',
+        short: '中鋼公司',
+        feature: '鋼鐵製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.csc.com.tw'
+    },
+    '2885元大金': {
+        price: '18',
+        industry: '金融業',
+        short: '元大金控',
+        feature: '證券與銀行',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2892第一金': {
+        price: '19',
+        industry: '金融業',
+        short: '第一金控',
+        feature: '銀行業務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '5880合庫金': {
+        price: '21',
+        industry: '金融業',
+        short: '合作金庫金控',
+        feature: '銀行及投資',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2882國泰金': {
+        price: '50',
+        industry: '金融業',
+        short: '國泰金控',
+        feature: '保險與銀行',
+        taiwan50: '2.3%',
+        trend: '穩定成長',
+        chart: '-',
+        url: 'https://www.cathayholdings.com.tw'
+    },
+    '2880華南金': {
+        price: '17',
+        industry: '金融業',
+        short: '華南金控',
+        feature: '銀行業務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2881富邦金': {
+        price: '55',
+        industry: '金融業',
+        short: '富邦金控',
+        feature: '保險與投資',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.fubon.com'
+    },
+    '1303南亞': {
+        price: '90',
+        industry: '化學',
+        short: '南亞塑膠',
+        feature: '化學原料',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.nanya.com.tw'
+    },
+    '1216統一': {
+        price: '130',
+        industry: '食品',
+        short: '統一企業',
+        feature: '食品與飲料',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.uni-president.com.tw'
+    },
+    '1301台塑': {
+        price: '110',
+        industry: '化學',
+        short: '台塑集團',
+        feature: '化學製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.fpg.com.tw'
+    },
+    '2412中華電': {
+        price: '100',
+        industry: '電信',
+        short: '中華電信',
+        feature: '電信服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.cht.com.tw'
+    },
+    '5876上海商銀': {
+        price: '25',
+        industry: '銀行',
+        short: '上海商業銀行',
+        feature: '銀行業務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '3711日月光投控': {
+        price: '105',
+        industry: '半導體',
+        short: '日月光投控',
+        feature: '封測與代工',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.aspeed.com.tw'
+    },
+    '3231緯創': {
+        price: '60',
+        industry: '電子',
+        short: '緯創資通',
+        feature: '電子製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.wistron.com'
+    },
+    '2382廣達': {
+        price: '55',
+        industry: '電子',
+        short: '廣達電腦',
+        feature: '筆電製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.quanta.com'
+    },
+    '2301光寶科': {
+        price: '40',
+        industry: '電子',
+        short: '光寶科技',
+        feature: '電子零組件',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.liteon.com'
+    },
+    '4938和碩': {
+        price: '110',
+        industry: '電子',
+        short: '和碩聯合科技',
+        feature: '代工組裝',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.pegatroncorp.com'
+    },
+    '2308台達電': {
+        price: '220',
+        industry: '電子',
+        short: '台達電子',
+        feature: '電源管理與自動化',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.deltaww.com'
+    },
+    '4904遠傳': {
+        price: '60',
+        industry: '電信',
+        short: '遠傳電信',
+        feature: '電信服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.fetnet.net.tw'
+    },
+    '2609陽明': {
+        price: '110',
+        industry: '運輸',
+        short: '陽明海運',
+        feature: '航運服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.yangming.com'
+    },
+    '2327國巨': {
+        price: '80',
+        industry: '電子',
+        short: '國巨',
+        feature: '被動元件製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.yageo.com'
+    },
+    '5871中租-KY': {
+        price: '150',
+        industry: '金融',
+        short: '中租控股',
+        feature: '租賃服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2454聯發科': {
+        price: '1000',
+        industry: '半導體',
+        short: '聯發科技',
+        feature: 'IC設計',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.mediatek.com'
+    },
+    '3045台灣大': {
+        price: '110',
+        industry: '電信',
+        short: '台灣大哥大',
+        feature: '電信服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.taiwanmobile.com'
+    },
+    '2615萬海': {
+        price: '90',
+        industry: '運輸',
+        short: '萬海航運',
+        feature: '航運服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.tonymarine.com'
+    },
+    '6505台塑化': {
+        price: '95',
+        industry: '化學',
+        short: '台塑化',
+        feature: '化學製造',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.fpc.com.tw'
+    },
+    '2603長榮': {
+        price: '110',
+        industry: '運輸',
+        short: '長榮海運',
+        feature: '航運服務',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.evergreen-marine.com'
+    },
+    '6919康霈': {
+        price: '50',
+        industry: '生技',
+        short: '康霈生技',
+        feature: '生技藥品',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2357華碩': {
+        price: '500',
+        industry: '電子',
+        short: '華碩電腦',
+        feature: '筆電與主機板',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.asus.com'
+    },
+    '3034聯詠': {
+        price: '280',
+        industry: '電子',
+        short: '聯詠科技',
+        feature: '顯示晶片',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.pixart.com.tw'
+    },
+    '2912統一超': {
+        price: '240',
+        industry: '零售',
+        short: '統一超商',
+        feature: '便利商店',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.7-11.com.tw'
+    },
+    '2345智邦': {
+        price: '150',
+        industry: '電子',
+        short: '智邦科技',
+        feature: '網通設備',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.abil.com.tw'
+    },
+    '2379瑞昱': {
+        price: '500',
+        industry: '電子',
+        short: '瑞昱半導體',
+        feature: '網路晶片',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.realtek.com'
+    },
+    '2395研華': {
+        price: '300',
+        industry: '電子',
+        short: '研華科技',
+        feature: '工業自動化',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.advantech.com'
+    },
+    '3017奇鋐': {
+        price: '60',
+        industry: '電子',
+        short: '奇鋐科技',
+        feature: 'IC設計',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2383台光電': {
+        price: '55',
+        industry: '電子',
+        short: '台光電',
+        feature: '光電元件',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2207和泰車': {
+        price: '350',
+        industry: '汽車',
+        short: '和泰汽車',
+        feature: '汽車製造與銷售',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '6669緯穎': {
+        price: '600',
+        industry: '電子',
+        short: '緯穎科技',
+        feature: '伺服器代工',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '3008大立光': {
+        price: '7000',
+        industry: '光學',
+        short: '大立光電',
+        feature: '光學鏡頭',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: 'https://www.largan.com'
+    },
+    '3661世芯-KY': {
+        price: '250',
+        industry: '半導體',
+        short: '世芯科技',
+        feature: 'IC設計',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    },
+    '2059川湖': {
+        price: '35',
+        industry: '電子',
+        short: '川湖科技',
+        feature: '被動元件',
+        taiwan50: '-',
+        trend: '-',
+        chart: '-',
+        url: '#'
+    }
+}
+
+// 渲染右側詳細資料
+function renderDetail(key) {
+    const data = factorDetails[key] || null;
+    currentFactor.textContent = key;
+
+    if (!data) {
+        detailBox.innerHTML = '<p>尚無詳細資料。</p>';
+        return;
+    }
+
+    const html = `
+    <h3>詳細說明</h3>
+    <p><strong>現在市價：</strong> ${data.price || '-'}</p>
+    <p><strong>產業：</strong> ${data.industry || '-'}</p>
+    <p><strong>一句介紹：</strong> ${data.short || '-'}</p>
+    <p><strong>特色：</strong> ${data.feature || '-'}</p>
+    <p><strong>台灣50占比：</strong> ${data.taiwan50 || '-'}</p>
+    <p><strong>未來趨勢：</strong> ${data.trend || '-'}</p>
+    <p><strong>股價圖表：</strong> ${data.chart || '-'}</p>
+    <p><strong>公司網址：</strong> <a href="${data.url || '#'}" target="_blank">${data.url || '-'}</a></p>
+  `;
+
+    detailBox.innerHTML = html;
+}
+
+// 設置按鈕 active
+function setActivePill(clicked) {
+    pills.forEach(p => p.classList.remove('active'));
+    clicked.classList.add('active');
+
+    const label = clicked.dataset.factor.trim();
+    renderDetail(label);
+}
+
+// 監聽按鈕點擊
+pills.forEach(p => {
+    p.addEventListener('click', () => setActivePill(p));
+});
+
+// 初始化：顯示第一個有資料的股票，並設置 active
+window.addEventListener('DOMContentLoaded', () => {
+    const firstPill = Array.from(pills).find(p => factorDetails[p.dataset.factor]);
+    if (firstPill) setActivePill(firstPill);
+});

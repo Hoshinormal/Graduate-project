@@ -194,6 +194,11 @@ footer a {
   text-decoration: none;
 }
 
+.detail-box p.formula {
+  font-size: 20px;     /* 字體放大 */
+  font-weight: 700;    /* 加粗 */
+  color: #0d6b6b;     /* 可選：改顏色突出 */
+}
 /* 響應式 */
 @media (max-width: 900px) {
   .container {

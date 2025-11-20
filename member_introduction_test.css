@@ -1,0 +1,64 @@
+/* ========= Reset & Base ========= */
+* { box-sizing: border-box; font-weight: 400; font-family: "regular","Microsoft JhengHei",sans-serif; }
+html, body { margin: 0; padding: 0; }
+body{
+  font-family:"Microsoft JhengHei", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(to bottom right, #E3F2FD, #A3DAFF);
+  color:#00487C;                       /* ← 修正了原本 test1.css 的顏色語法 */
+  display:flex; flex-direction:column; min-height:100vh;
+  padding-bottom: 80px; /* 避免內容被 footer 遮住 */
+}
+
+/* ========= Header（全站共用） ========= */
+header{
+  background:#006d77; color:#F5FCFF;
+  display:flex; justify-content:space-between; align-items:center; padding:14px 40px;
+}
+nav{ display:flex; gap:20px; }
+nav a, .auth a{ color:#F5FCFF; text-decoration:none; font-size:16px; }
+.auth a{ font-size:14px; }
+
+/* ========= Layout（全站共用） ========= */
+.container{ width:100%; max-width:1080px; margin:0 auto; padding:40px 20px 72px; }
+
+/* ========= Chips（建議全站共用的基礎樣式） ========= */
+.chip-group{ display:flex; flex-wrap:wrap; gap:10px; }
+.chip{
+  display:inline-block; padding:8px 14px; border-radius:999px;
+  background:#E6F2F6; color:#005268; text-decoration:none;
+  font-size:14px; line-height:1; border:1px solid #C7E3EC;
+  transition: transform .08s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.chip:hover{ transform:translateY(-1px); background:#DFF0F6; box-shadow:0 4px 10px rgba(0,0,0,.06); }
+/* 若 chip-accent 只在 sort 頁使用，請刪掉；若全站會用到，保留： */
+.chip-accent{ background:#FFE8B0; color:#7B4B00; border-color:#FFD27A; }
+
+/* ========= Footer（全站共用） ========= */
+footer{
+  position: fixed;  /* 新增 */
+  bottom: 0;        /* 新增 */
+  left: 0;          /* 新增 */
+  width: 100%;      /* 新增 */
+  z-index: 999;     /* 新增，避免被內容蓋住 */
+
+  background:#006d77;
+  color:#F5FCFF;
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  gap:30px; 
+  padding:16px;
+  font-size:14px; 
+  flex-wrap:wrap;
+}
+.footer-links{ display:flex; gap:20px; }
+footer a{ color:#F5FCFF; text-decoration:none; }
+
+/* ========= RWD（僅保留共用段落） ========= */
+@media (max-width:1024px){
+  .container{ padding:32px 16px 64px; }
+}
+@media (max-width:640px){
+  header{ padding:12px 18px; }
+  .chip{ font-size:13px; padding:7px 12px; }
+}
