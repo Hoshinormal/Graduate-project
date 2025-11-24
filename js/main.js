@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     }, { 
-        threshold: 0.3  /* Adjust the threshold as needed */
+        threshold: 0.3  /* 多少面積進入畫面才會觸發 */
     });
 
     const hiddenelements = document.querySelectorAll('.fade-up');
