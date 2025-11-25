@@ -35,15 +35,90 @@ a {
 }
 
 .faq-item {
-    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
     background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 30px 90px;
+    padding: 10px 60px;
     margin: 20px 15vw;
     text-align: left;
 }
-.faqblock {
-    min-width: 80vw;
-    
+
+.faq-question{
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* 讓文字靠左，箭頭靠右 */
+    align-items: center;
 }
+
+
+.faq-icon{
+    /*設定圖示大小*/
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative; /*為了讓線絕對定位*/
+    display: inline-block;
+}
+
+.faq-icon::before, .faq-icon::after{
+    content: '';/*必須，代表產生空內容*/
+    position: absolute;
+    background-color: #007BFF; /*線條顏色*/
+
+    /*讓線條永遠置中*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /*設定動畫*/
+    transition: transform 0.3s ease;
+}
+
+/*畫橫線*/
+.faq-icon::before{
+    width: 100%;
+    height: 4px;
+}
+/*畫直線*/
+.faq-icon::after{
+    width: 4px;
+    height: 100%;
+}
+
+/*faq動畫區*/
+.faq-item.active .faq-icon::after{
+    /*  將直線旋轉90度，直線會變橫線，並與橫線重疊，視覺上只會剩下橫線*/
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.faq-item.active .faq-icon{
+    /*旋轉圖示*/
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer{
+    /*預設為隱藏*/
+    max-height: 0;
+    overflow:hidden;
+
+    /*過度動畫，高度改變花費幾秒與淡入淡出*/
+    transition:max-height 0.3s ease-out;
+
+    padding: 0 15px;
+}
+
+/*展開時的樣式*/
+.faq-answer p{
+    padding: 15px 0; /*把padding給內部的 p ，避免在收合時候還有padding的空間*/
+    margin-top: 0;
+}
+
