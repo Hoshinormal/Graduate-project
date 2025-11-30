@@ -56,14 +56,14 @@ main {
 }
 
 main h1 {
-  font-size: 5rem;
+  font-size: 7rem;
   font-weight: 700;
   margin-bottom: 15px;
   min-width: 100vw;
 }
 
 main p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 15vh;
   min-width: 100vw;
 }
@@ -72,7 +72,7 @@ main a{
    color: white;
 }
 span{
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 500;
 }
 
@@ -91,7 +91,7 @@ span{
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  font-size: 18px;
+  font-size: 1.5rem;
 }
 
 .btn-row {
@@ -107,7 +107,7 @@ button {
   border-radius: 25px;
   padding: 12px 20px;
   /* font-size: 24px; */
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background 0.3s;
   white-space: nowrap; /* 不換行 */
@@ -126,7 +126,7 @@ footer {
   align-items: center;         /* 垂直置中 */
   gap: 30px;                   /* 文字與連結之間的間距 */
   padding: 15px;
-  font-size: 14px;
+  font-size: 1.2rem;
   flex-wrap: wrap;             /* 螢幕太窄時換行 */
 }
 
