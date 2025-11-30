@@ -1,6 +1,14 @@
 /* ========= Reset & Base ========= */
-* { box-sizing: border-box; font-weight: 400; font-family: "regular","Microsoft JhengHei",sans-serif; }
-html, body { margin: 0; padding: 0; }
+* { box-sizing: border-box; 
+  font-weight: 400; 
+  font-family: "regular","Microsoft JhengHei",sans-serif; 
+}
+
+html, body { 
+  margin: 0; 
+  padding: 0; 
+}
+
 body{
   font-family:"Microsoft JhengHei", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: linear-gradient(to bottom right, #E3F2FD, #A3DAFF);
@@ -11,22 +19,52 @@ body{
 
 /* ========= Header（全站共用） ========= */
 header{
-  background:#006d77; color:#F5FCFF;
-  display:flex; justify-content:space-between; align-items:center; padding:14px 40px;
+  background:#006d77; 
+  color:#F5FCFF;
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  padding:14px 40px;
 }
-nav{ display:flex; gap:20px; }
-nav a, .auth a{ color:#F5FCFF; text-decoration:none; font-size:16px; }
-.auth a{ font-size:14px; }
+
+nav{ 
+  display:flex; 
+  gap:20px; 
+}
+nav a, .auth a{ 
+  color:#F5FCFF; 
+  text-decoration:none; 
+  font-size:16px; 
+
+}
+.auth a{ 
+  font-size:14px; 
+}
 
 /* ========= Layout（全站共用） ========= */
-.container{ width:100%; max-width:1080px; margin:0 auto; padding:40px 20px 72px; }
+.container{ 
+  width:100%; 
+  max-width:1080px; 
+  margin:0 auto; 
+  padding:40px 20px 72px; 
+}
 
 /* ========= Chips（建議全站共用的基礎樣式） ========= */
-.chip-group{ display:flex; flex-wrap:wrap; gap:10px; }
+.chip-group{ 
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:10px; 
+}
 .chip{
-  display:inline-block; padding:8px 14px; border-radius:999px;
-  background:#E6F2F6; color:#005268; text-decoration:none;
-  font-size:14px; line-height:1; border:1px solid #C7E3EC;
+  display:inline-block; 
+  padding:8px 14px;
+    border-radius:999px;
+  background:#E6F2F6; 
+  color:#005268; 
+  text-decoration:none;
+  font-size:14px; 
+  line-height:1; 
+  border:1px solid #C7E3EC;
   transition: transform .08s ease, background-color .15s ease, box-shadow .15s ease;
 }
 .chip:hover{ transform:translateY(-1px); background:#DFF0F6; box-shadow:0 4px 10px rgba(0,0,0,.06); }

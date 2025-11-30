@@ -6,8 +6,14 @@
 }
 
 /* Hero */
-.hero { text-align:center; margin-bottom:20px; }
-.hero h1 { font-size:32px; color:#03485A; }
+.hero { 
+  text-align:center; 
+  margin-bottom:20px; 
+}
+.hero h1 { 
+  font-size:4rem; 
+  color:#03485A; 
+}
 
 /* 我們的目標 */
 .team-vision {
@@ -20,7 +26,12 @@
   max-width: 1000px;
   margin: 60px auto;
 }
-.team-vision h2 { font-size: 34px; color:#03485A; margin-bottom:20px; }
+.team-vision h2 { 
+  font-size: 3rem; 
+  color:#03485A; 
+  margin-bottom:20px; 
+}
+
 .team-vision ul {
   list-style-type: disc;
   list-style-position: inside;
@@ -28,11 +39,16 @@
   display: inline-block;
   padding: 0; margin: 0;
 }
-.team-vision li { font-size:20px; color:#0A2F44; line-height:2; margin:8px 0; }
+.team-vision li { 
+  font-size:1.4rem; 
+  color:#0A2F44; 
+  line-height:2; 
+  margin:8px 0; 
+}
 
 /* 成員介紹 */
 .member-section { text-align:center; margin:60px auto; }
-.member-section h2 { font-size:32px; color:#03485A; margin-bottom:24px; }
+.member-section h2 { font-size:3rem; color:#03485A; margin-bottom:24px; }
 
 .member-grid {
   display:grid;
