@@ -44,7 +44,7 @@ nav a {
 h1 {
   text-align: center;
   margin-top: 40px;
-  font-size: 28px;
+  font-size: 4rem;
   font-weight: bold;
 }
 
@@ -81,7 +81,7 @@ h1 {
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 2.3rem;
   border-left: 5px solid #006d75;
   padding-left: 10px;
   margin-bottom: 15px;
@@ -90,6 +90,7 @@ h2 {
 ul {
   line-height: 1.8;
   padding-left: 20px;
+  font-size: 1.3rem;
 }
 
 footer {
@@ -123,6 +124,6 @@ footer a {
 .top-title {
   text-align: center;
   margin-top: 30px;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #004f52;
 }
