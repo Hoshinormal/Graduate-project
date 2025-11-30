@@ -11,18 +11,18 @@ main {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4.2rem;
     display: block;
     margin-bottom: 20px;
     justify-content: center;
 }
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
     color: #007BFF;
 }
 p {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     line-height: 1.6;
 }
 a {
