@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>多因子智慧選股系統 — 因子介紹</title>
     <link rel="stylesheet" href="stock.css" />
+    <link rel="stylesheet" href="css/animation.css" />
 </head>
 
 <body>
@@ -24,12 +25,12 @@
         <main class="container">
             <!-- 左側按鈕 -->
             <aside class="left-panel">
-                <h3>因子介紹</h3>
-                <div class="search-wrapper">
+                <h3 class="fade-up">因子介紹</h3>
+                <div class="search-wrapper fade-up">
                     <input type="text" id="factor-search" placeholder="搜尋股票…" class="search-box">
                     <button id="factor-search-btn" class="search-btn">搜尋</button>
                 </div>
-                <div class="factor-group">
+                <div class="factor-group fade-up delay-3">
                     <div class="pill-grid" id="momentum-pills">
                         <button class="pill" data-factor="2330台積電">2330 台積電</button>
                         <button class="pill" data-factor="2887台新新光金">2887 台新新光金</button>
@@ -87,10 +88,10 @@
             <!-- 右側內容區 -->
             <section class="content">
                 <div class="title-area">
-                    <h1 id="main-title">因子介紹</h1>
-                    <div class="factor-pill" id="current-factor">2330台積電</div>
+                    <h1 id="main-title" class="fade-up">因子介紹</h1>
+                    <div class="factor-pill fade-up" id="current-factor">2330台積電</div>
                 </div>
-                <div class="detail-area">
+                <div class="detail-area fade-up delay-3">
                     <div class="detail-box" id="detail-box">
                         <!-- 由 JS 填入內容 -->
                     </div>
@@ -109,6 +110,7 @@
     </footer>
 
     <script src="stock.js"></script>
+    <script src="js/animation.js"></script>
 </body>
 
 </html>
