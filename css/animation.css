@@ -1,0 +1,32 @@
+/*動畫*/
+ .fade-up{
+  opacity: 0; /* 初始透明度為0 */
+  transform: translateY(30px); /* 初始位置向下移動 50px */
+  transition: all 0.5s ease-out;
+}
+
+.fade-up.visible{ 
+  opacity: 1; /* 變為不透明 */
+  transform: translateY(0); /* 回到原位 */
+}
+
+.fade-in{
+  opacity: 0; /* 初始透明度為0 */
+    transform: translateY(0);
+    transition:opacity 1s ease-out;
+}
+.fade-in.visible{ 
+  opacity: 1; /* 變為不透明 */
+}
+.delay-1{
+  transition-delay: 0.1s; 
+}
+.delay-2{
+  transition-delay: 0.2s; 
+}
+.delay-3{
+  transition-delay: 0.3s; 
+}
+.delay-4{
+  transition-delay: 0.4s; 
+}

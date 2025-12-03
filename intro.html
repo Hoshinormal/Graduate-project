@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>多因子智慧選股系統 — 因子介紹</title>
   <link rel="stylesheet" href="intro.css" />
+  <link rel="stylesheet" href="css/animation.css">
 </head>
 
 <body>
@@ -22,11 +23,11 @@
 
   <div class="page-wrapper">
     <main class="container">
-      <aside class="left-panel">
-        <h3>基礎介紹</h3>
+      <aside class="left-panel fade-up">
+        <h3 class="">基礎介紹</h3>
         <div class="factor-group">
-          <h4>動能因子（Momentum）</h4>
-          <div class="pill-grid" id="momentum-pills">
+          <h4 class="">動能因子（Momentum）</h4>
+          <div class="pill-grid  delay-1" id="momentum-pills">
             <button class="pill" data-factor="單月營收成長率">單月營收成長率</button>
             <button class="pill" data-factor="3月營收增長率">3月營收增長率</button>
             <button class="pill" data-factor="短期動能">短期動能</button>
@@ -44,8 +45,8 @@
         </div>
 
         <div class="factor-group">
-          <h4>價值因子（Value）</h4>
-          <div class="pill-grid" id="value-pills">
+          <h4 class="">價值因子（Value）</h4>
+          <div class="pill-grid  delay-1" id="value-pills">
             <button class="pill active" data-factor="股價營收比（P/S）">股價營收比（P/S）</button>
             <button class="pill" data-factor="本益比（P/E）">本益比（P/E）</button>
             <button class="pill" data-factor="股價淨值比（P/B）">股價淨值比（P/B）</button>
@@ -62,12 +63,12 @@
 
       <section class="content">
         <div class="title-area">
-          <h1 id="main-title">各項因子介紹</h1>
-          <h2 id="subtitle">常見因子分類</h2>
-          <div class="factor-pill" id="current-factor">股價營收比（P/S）</div>
+          <h1 id="main-title" class="fade-up">各項因子介紹</h1>
+          <h2 id="subtitle" class="fade-up">常見因子分類</h2>
+          <div class="factor-pill fade-up" id="current-factor">股價營收比（P/S）</div>
         </div>
 
-        <div class="detail-area">
+        <div class="detail-area fade-up delay-1">
           <h3>詳細說明</h3>
           <div class="detail-box" id="detail-box">
             <!-- 由 JS 填入內容 -->
@@ -87,6 +88,7 @@
   </footer>
 
   <script src="intro.js"></script>
+  <script src="js/animation.js"></script>
 </body>
 
 </html>
