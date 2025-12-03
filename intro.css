@@ -81,7 +81,7 @@ max-width: none;
 .left-panel h3 {
   margin-top: 0;
   color: var(--teal-dark);
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .factor-group {
@@ -91,7 +91,7 @@ max-width: none;
 .factor-group h4 {
   margin: 6px 0;
   color: #123;
-  font-size: 16px;
+  font-size: 1.2rem;
 }
 
 .pill-grid {
@@ -128,7 +128,7 @@ max-width: none;
 
 .title-area h1 {
   margin: 6px 0 6px;
-  font-size: 34px;
+  font-size: 3rem;
   font-weight: 700;
 }
 
@@ -143,7 +143,7 @@ max-width: none;
   background: #dbeff4;
   padding: 14px 24px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #123;
   box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.02);
 }
@@ -154,7 +154,7 @@ max-width: none;
 
 .detail-area h3 {
   text-align: center;
-  font-size: 22px;
+  font-size: 2rem;
   margin-bottom: 8px;
 }
 
@@ -169,6 +169,10 @@ max-width: none;
 
 .detail-box ul {
   padding-left: 18px;
+}
+
+p{
+  font-size: 1.5rem;
 }
 
 /* footer */
