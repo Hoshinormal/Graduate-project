@@ -520,7 +520,7 @@ function renderDetail(key) {
     <h3>詳細說明</h3>
     <p><strong>現在市價：</strong> ${data.price || '-'}</p>
     <p><strong>產業：</strong> ${data.industry || '-'}</p>
-    <p><strong>一句介紹：</strong> ${data.short || '-'}</p>
+    <p><strong>簡介：</strong> ${data.short || '-'}</p>
     <p><strong>特色：</strong> ${data.feature || '-'}</p>
     <p><strong>台灣50占比：</strong> ${data.taiwan50 || '-'}</p>
     
