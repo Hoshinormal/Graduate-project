@@ -523,10 +523,9 @@ function renderDetail(key) {
     <p><strong>簡介：</strong> ${data.short || '-'}</p>
     <p><strong>特色：</strong> ${data.feature || '-'}</p>
     <p><strong>台灣50占比：</strong> ${data.taiwan50 || '-'}</p>
-    
+
     <p><strong>股價圖表：</strong> ${data.chart || '-'}</p>
-    <p><strong>公司網址：</strong> <a href="${data.url || '#'}" target="_blank">${data.url || '-'}</a></p>
-  `;
+    <p><strong>公司網址：</strong> <a href="${data.url || '#'}" target="_blank">${data.url || '-'}</a></p>`;
 
     detailBox.innerHTML = html;
 }
