@@ -1,0 +1,238 @@
+/* ========== 1) 變數 / tokens ========== */
+:root{
+  --sim-primary:#076585;
+  --sim-accent:#2aa198;
+  --card-radius:16px;
+  --card-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+
+/* ========== 2) 首屏（Hero） ========== */
+.hero{ text-align:center; margin-bottom:20px; animation:hero-in .55s ease both; }
+.hero h1{ margin:0; font-size:32px; color:#03485A; letter-spacing:1px; }
+.hero .subtitle{ margin:6px 0 0; font-size:20px; color:var(--sim-primary); opacity:.9; }
+@keyframes hero-in{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+
+/* ========== 返回上一頁連結 ========== */
+.back-link{ margin:0 0 16px; }
+.back-link a{
+  display:inline-block; padding:8px 14px;
+  background:#eef7fb; border:1px solid #b9d9ea; border-radius:10px;
+  color:#076585; font-size:14px; text-decoration:none;
+  transition:background 0.2s ease, transform 0.1s ease;
+}
+.back-link a:hover{ background:#d7edf6; transform:translateY(-1px); }
+
+/* ========== 3) 功能列表（藍色使用說明框） ========== */
+.feature-list{
+  margin:0 0 14px; padding:14px 16px;
+  background:#eef7fb; border:1px dashed #b9d9ea; border-radius:14px;
+  color:#40606F; line-height:1.75; font-size:14px;
+}
+.feature-list ol{ margin:0; padding-left:22px; }
+.feature-list li{ margin:6px 0; }
+.feature-list code{
+  background:#e9f6ff; border:1px solid #cfe7f4;
+  padding:1px 6px; border-radius:6px;
+}
+
+/* ========== 4) 投資模擬設定區 ========== */
+.mf-btn{
+  display:inline-block; padding:10px 16px; margin:10px 0;
+  background:#eef7fb; border:1px solid #b9d9ea; border-radius:10px;
+  color:#076585; font-size:14px; cursor:pointer;
+  transition:background 0.2s ease, transform 0.1s ease;
+}
+.mf-btn:hover{ background:#d7edf6; transform:translateY(-1px); }
+.mf-btn.danger{ background:#ffeaea; border-color:#ffb3b3; color:#b30000; }
+.mf-btn.primary{
+  background:#076585; color:#fff; border-color:#06506a;
+}
+.mf-btn.primary:hover{ background:#044a5e; }
+
+.sim-panel{
+  margin:6px 0 18px; padding:16px 18px;
+  background:#fdfdfd; border:1px solid #cfdfea; border-radius:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.sim-panel h3{ margin:0 0 8px; font-size:18px; color:#044a5e; }
+.sim-desc{ margin:4px 0 10px; font-size:14px; color:#455a64; line-height:1.7; }
+
+.sim-summary{
+  display:flex; flex-wrap:wrap; gap:12px;
+  padding:8px 10px; margin-bottom:10px;
+  background:#f3fbff; border-radius:10px; font-size:14px; color:#06506a;
+}
+.sim-summary span{ margin-right:8px; }
+
+.sim-note{
+  margin-top:10px; font-size:13px; color:#777;
+}
+
+#point-remain.remain-over{
+  color:#b30000;
+  font-weight:600;
+}
+#point-remain.remain-zero{
+  color:#0b7a43;
+  font-weight:600;
+}
+
+.result-panel{
+  margin-top:10px; padding:10px 12px;
+  background:#fff; border-radius:10px; border:1px dashed #cfdfea;
+  font-size:14px; color:#37474f;
+}
+
+/* ========== 5) 表格外框與滑動提示 ========== */
+.table-wrapper{
+  background:#fff; border-radius:var(--card-radius);
+  box-shadow:var(--card-shadow); padding:18px; overflow-x:auto; overflow-y:visible;
+  position:relative;
+}
+.stock-table{ width:100%; border-collapse:separate; border-spacing:0; }
+
+/* 表頭 */
+.stock-table thead th{
+  position:sticky; top:0; z-index:2;
+  background:linear-gradient(180deg,#e6f3f8,#d7edf6);
+  color:#044a5e; font-weight:700; padding:12px 14px; white-space:nowrap;
+  border-bottom:1px solid #cbe3ee; box-shadow:inset 0 -1px 0 #cbe3ee;
+  cursor:pointer; user-select:none;
+  border-right:1px solid #d6e3ee;
+}
+.stock-table thead th:last-child{
+  border-right:none;
+}
+th.not-sort{ cursor:default; }
+
+/* tooltip */
+.stock-table thead th:hover::after{
+  content:attr(data-tip);
+  position:absolute; left:50%; top:100%; transform:translate(-50%,8px);
+  background:#073642; color:#fff; font-size:12px; line-height:1.2;
+  padding:6px 8px; border-radius:8px; white-space:nowrap;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+.stock-table thead th:hover::before{
+  content:""; position:absolute; left:50%; top:100%; transform:translate(-50%,2px);
+  border:6px solid transparent; border-bottom-color:#073642;
+}
+
+/* 表身 */
+.stock-table td{
+  padding:10px 12px; border-bottom:1px solid #E8EFF3; color:#0b3a4a;
+}
+.stock-table tbody tr:nth-child(odd){ background:#fbfeff; }
+.stock-table tbody tr:hover{ background:#f0fbff; }
+
+/* 對齊 */
+td.num, th.num{ text-align:right; font-variant-numeric:tabular-nums; }
+td.code, th.code{ text-align:right; white-space:nowrap; }
+td.center, th.center{ text-align:center; }
+
+/* 排序高亮 */
+.stock-table thead th.sorted-asc,
+.stock-table thead th.sorted-desc{
+  background:linear-gradient(180deg,#d9f3ff,#c9ecff); color:#00465a;
+  box-shadow:inset 0 -2px 0 var(--sim-accent);
+}
+.stock-table thead th.sorted-asc::after{ content:"▲"; margin-left:6px; color:var(--sim-accent); }
+.stock-table thead th.sorted-desc::after{ content:"▼"; margin-left:6px; color:var(--sim-accent); }
+
+/* 排序彈出層 */
+th{ position:relative; }
+th.th-active{ z-index:4; }
+.sort-pop{
+  position:absolute; left:50%; top:calc(100% + 6px); transform:translateX(-50%);
+  background:#fff; border-radius:14px; padding:6px;
+  box-shadow:0 2px 0 #e6f2f8 inset, 0 0 0 1px #d6e9f3, 0 14px 32px rgba(9,30,66,.18);
+  display:flex; gap:6px; align-items:center; z-index:9999;
+  animation:sp-pop .12s ease both;
+}
+@keyframes sp-pop{
+  from{ opacity:0; transform:translateY(-4px) scale(.98); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+.sort-pop .sp-btn{
+  appearance:none; cursor:pointer; background:#fff; border:1px solid #d6e9f3; border-radius:12px;
+  padding:10px 14px; font-size:14px; line-height:1;
+  transition:transform .08s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.sort-pop .sp-btn:hover{
+  transform:translateY(-1px);
+  background:#f4fbff; border-color:#c7e3ef; box-shadow:0 6px 14px rgba(0,0,0,.10);
+}
+.sort-pop .sp-danger{ color:#122a3a; }
+
+/* 滑動捲軸 */
+.table-wrapper::-webkit-scrollbar{ height:10px; width:10px; }
+.table-wrapper::-webkit-scrollbar-thumb{
+  background:#cfe7f2; border-radius:999px; border:2px solid #eff7fb;
+}
+.table-wrapper::-webkit-scrollbar-track{
+  background:#f6fbfe; border-radius:999px;
+}
+
+/* 表格可滑動提示 */
+.scroll-hint{
+  position:absolute; top:25%; left:50%; transform:translate(-50%, -50%);
+  background:rgba(7,101,133,0.9); color:#fff;
+  padding:10px 18px; border-radius:999px;
+  font-size:15px; box-shadow:0 6px 20px rgba(0,0,0,.25);
+  opacity:0; pointer-events:none;
+  animation:fadeInOutCenter 4s ease forwards;
+}
+@keyframes fadeInOutCenter{
+  0%{ opacity:0; transform:translate(-50%, -20px); }
+  10%,80%{ opacity:1; transform:translate(-50%, 0); }
+  100%{ opacity:0; transform:translate(-50%, 20px); }
+}
+
+/* 投資設定欄：預設隱藏，開啟會員功能時再顯示 */
+.sim-col,
+.sim-cell{ display:none; }
+
+.stock-table.table-show-sim th.sim-col,
+.stock-table.table-show-sim td.sim-cell{ display:table-cell; }
+
+/* 內部排版（checkbox + 點數輸入） */
+.sim-cell{ text-align:right; }
+.sim-cell-inner{
+  display:flex; align-items:center; justify-content:flex-end; gap:6px;
+}
+
+/* 隱藏實際 checkbox（只用來存狀態） */
+.sim-cell-inner .row-select{
+  display:none;
+}
+
+/* 投資欄位啟用時的底色 */
+.sim-cell.sim-active{
+  background:#fff8e1 !important;
+}
+
+/* 輸入框樣式 */
+.sim-cell-inner .point-input{
+  width:80px; max-width:100%;
+  padding:4px 6px; border-radius:6px; border:1px solid #cfdfea;
+  font-size:13px; text-align:right;
+}
+.sim-cell-inner .point-input:focus{
+  outline:none; border-color:#076585;
+  box-shadow:0 0 0 1px rgba(7,101,133,0.2);
+}
+
+/* RWD */
+@media (max-width:1024px){
+  .hero h1{ font-size:28px; }
+  .hero .subtitle{ font-size:18px; }
+}
+@media (max-width:720px){
+  .table-wrapper{ padding:12px; }
+  .stock-table thead th, .stock-table td{ padding:8px 10px; }
+  .hero h1{ font-size:24px; }
+  .hero .subtitle{ font-size:16px; }
+}
+@media (max-width:420px){
+  .stock-table thead th, .stock-table td{ font-size:13px; }
+}

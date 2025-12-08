@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>多因子智慧選股系統｜0050 成分股</title>
+<link href="test.css" rel="stylesheet"/>
+<link href="css/taiwan_50.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<nav>
+<a href="#">首頁</a>
+<a href="#">股票分類</a>
+<a href="#">關於我們</a>
+</nav>
+<div class="auth">
+<a href="#">註冊/登入</a>
+</div>
+</header>
+<main class="container">
+<section class="hero">
+<h1>多因子智慧選股系統</h1>
+<p class="subtitle">0050 成分股</p>
+</section>
+<div class="back-link">
+<a href="sort.html">← 返回股票分類總覽</a>
+</div>
+<!-- 功能說明 -->
+<section class="feature-list">
+<p><b>以下資料為 2024 年，月平均；例外項目將另外標註。</b></p>
+<ol>
+<li><b>點欄位即可排序：</b>點一次顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。預設依「公司代碼」由小到大。</li>
+<li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位計算方式或意義。</li>
+<li><b>會員功能（暫時）：</b>可自由選擇 2～3 個因子，由系統自動計算綜合得分，新增「得分」欄位供排序。</li>
+</ol>
+</section>
+<!-- 0050 介紹 -->
+<section class="industry-intro">
+<h2>0050（元大台灣卓越50）簡介</h2>
+<p>
+        0050 是台灣常見的市值型 ETF 之一，由台灣市值較大的公司組成，
+        成分股多為權值龍頭，例如台積電、聯發科、鴻海、台達電等。
+      </p>
+<p>
+<b>特色：</b>長期追蹤台股大型企業表現，代表性高、波動相對較低，
+        常被視為「一籃子買台股」的指標工具，適合偏長期投資人參考。
+      </p>
+</section>
+<!-- 會員功能 -->
+<section class="member-feature">
+<button class="mf-btn" id="toggle-weight-panel">
+        會員功能：多因子組合設定
+      </button>
+<div class="weight-panel" id="weight-panel" style="display:none;">
+  <h3>多因子組合設定</h3>
+  <p>請從下方欄位中選擇 <b>2～3 個因子</b>，系統會自動計算綜合得分。</p>
+
+  <div class="factor-list">
+    <div class="factor" data-col="3">成交量（百萬股）</div>
+    <div class="factor low-better" data-col="4">本益比（P/E）</div>
+    <div class="factor low-better" data-col="5">股價淨值比（P/B）</div>
+    <div class="factor" data-col="6">現金股利率</div>
+    <div class="factor" data-col="7">每股盈餘（EPS）</div>
+    <div class="factor" data-col="8">股東權益報酬率（ROE）</div>
+    <div class="factor" data-col="9">稅後淨利率</div>
+    <div class="factor" data-col="10">營收成長率</div>
+    <div class="factor" data-col="11">稅後淨利成長率</div>
+    <div class="factor low-better" data-col="12">負債比率</div>
+  </div>
+
+  <div class="mf-note">
+    <p><b>計算方式：</b>每個選取的因子由低到高排名 1～N 分。若為 <span class="low">越低越好</span> 的因子（如 P/E、P/B、負債比率），則反轉名次。最後將 2～3 個因子的名次分數加總，作為綜合得分。</p>
+    <p class="combo">推薦組合 1：尚未設定</p>
+    <p class="combo">推薦組合 2：尚未設定</p>
+    <p class="combo">推薦組合 3：杜邦模型：股價淨值比（P/B）＋股東權益報酬率（ROE）＋稅後淨利成長率
+      <button class="apply-combo" data-cols="5,8,11">套用</button>
+    </p>
+  </div>
+<div class="mf-actions">
+    <button class="mf-btn primary" id="apply-weight">開始計算</button>
+    <button class="mf-btn danger" id="reset-weight">重設</button>
+  </div>
+</div>
+</section>
+<!-- 表格：0050 成分股 -->
+<section>
+<div class="table-wrapper">
+<div class="scroll-hint">💡 表格可左右滑動</div>
+<table aria-label="0050成分股" class="stock-table">
+<thead>
+<tr>
+<th class="center not-sort" data-tip="此欄僅顯示目前排序順位">排序</th>
+<th class="num code" data-tip="台灣上市公司代碼">公司代碼</th>
+<th class="name not-sort" data-tip="公司中文名稱">公司名稱</th>
+<th class="num" data-tip="2024 年月平均；成交量（百萬股）">成交量（百萬股）</th>
+<th class="num" data-tip="2024 年月平均；本益比（Price / Earnings）">本益比（P/E）</th>
+<th class="num" data-tip="2024 年月平均；股價淨值比（Price / Book）">股價淨值比（P/B）</th>
+<th class="num" data-tip="2024 年月平均；現金股利 ÷ 價格（%）">現金股利率</th>
+<th class="num" data-tip="2024 年月平均；每股盈餘（Earnings Per Share）">每股盈餘（EPS）</th>
+<th class="num" data-tip="2024 年月平均；股東權益報酬率（Return on Equity）">股東權益報酬率（ROE）</th>
+<th class="num" data-tip="2024 年月平均；稅後淨利率（Net Profit Margin）">稅後淨利率</th>
+<th class="num" data-tip="2024 年月平均；營收成長率 Year-over-Year（%）">營收成長率</th>
+<th class="num" data-tip="2024 年月平均；稅後淨利成長率 Year-over-Year（%）">稅後淨利成長率</th>
+<th class="num" data-tip="2024 年月平均；負債比率（%）">負債比率</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="center">1</td><td class="num code">1216</td><td class="name">統一</td><td class="num">180.50</td><td class="num">48.96</td><td class="num">3.58</td><td class="num">3.75</td><td class="num">0.91</td><td class="num">4.03</td><td class="num">4.90</td><td class="num">13.60</td><td class="num">14.21</td><td class="num">70.77</td></tr>
+<tr><td class="center">2</td><td class="num code">1301</td><td class="name">台塑</td><td class="num">252.92</td><td class="num">120.52</td><td class="num">1.07</td><td class="num">2.56</td><td class="num">-0.05</td><td class="num">-0.10</td><td class="num">-0.61</td><td class="num">0.64</td><td class="num">-29.01</td><td class="num">38.97</td></tr>
+<tr><td class="center">3</td><td class="num code">1303</td><td class="name">南亞</td><td class="num">229.42</td><td class="num">69.63</td><td class="num">1.06</td><td class="num">2.12</td><td class="num">0.11</td><td class="num">0.22</td><td class="num">1.30</td><td class="num">0.07</td><td class="num">-28.16</td><td class="num">41.38</td></tr>
+<tr><td class="center">4</td><td class="num code">2002</td><td class="name">中鋼</td><td class="num">471.67</td><td class="num">103.27</td><td class="num">1.18</td><td class="num">1.73</td><td class="num">0.03</td><td class="num">0.28</td><td class="num">1.05</td><td class="num">-0.79</td><td class="num">350.47</td><td class="num">50.53</td></tr>
+<tr><td class="center">5</td><td class="num code">2059</td><td class="name">川湖</td><td class="num">26.33</td><td class="num">34.83</td><td class="num">6.93</td><td class="num">1.20</td><td class="num">16.15</td><td class="num">8.28</td><td class="num">60.97</td><td class="num">76.41</td><td class="num">154.17</td><td class="num">20.32</td></tr>
+<tr><td class="center">6</td><td class="num code">2207</td><td class="name">和泰車</td><td class="num">6.00</td><td class="num">25.68</td><td class="num">5.46</td><td class="num">2.66</td><td class="num">9.18</td><td class="num">5.76</td><td class="num">8.55</td><td class="num">0.92</td><td class="num">-6.42</td><td class="num">79.00</td></tr>
+<tr><td class="center">7</td><td class="num code">2301</td><td class="name">光寶科</td><td class="num">339.42</td><td class="num">19.67</td><td class="num">2.89</td><td class="num">6.03</td><td class="num">1.30</td><td class="num">3.45</td><td class="num">8.72</td><td class="num">-7.69</td><td class="num">-15.52</td><td class="num">55.15</td></tr>
+<tr><td class="center">8</td><td class="num code">2303</td><td class="name">聯電</td><td class="num">1324.50</td><td class="num">10.68</td><td class="num">1.75</td><td class="num">6.08</td><td class="num">0.95</td><td class="num">3.21</td><td class="num">20.31</td><td class="num">4.38</td><td class="num">-23.78</td><td class="num">35.54</td></tr>
+<tr><td class="center">9</td><td class="num code">2308</td><td class="name">台達電</td><td class="num">208.00</td><td class="num">29.56</td><td class="num">4.58</td><td class="num">1.90</td><td class="num">3.39</td><td class="num">3.90</td><td class="num">9.55</td><td class="num">4.87</td><td class="num">2.98</td><td class="num">47.67</td></tr>
+<tr><td class="center">10</td><td class="num code">2317</td><td class="name">鴻海</td><td class="num">1727.25</td><td class="num">17.39</td><td class="num">1.58</td><td class="num">3.32</td><td class="num">2.75</td><td class="num">2.45</td><td class="num">2.46</td><td class="num">11.15</td><td class="num">24.87</td><td class="num">56.89</td></tr>
+<tr><td class="center">11</td><td class="num code">2327</td><td class="name">國巨</td><td class="num">55.08</td><td class="num">16.45</td><td class="num">2.05</td><td class="num">2.85</td><td class="num">10.55</td><td class="num">3.33</td><td class="num">15.97</td><td class="num">13.04</td><td class="num">13.20</td><td class="num">57.85</td></tr>
+<tr><td class="center">12</td><td class="num code">2330</td><td class="name">台積電</td><td class="num">893.17</td><td class="num">25.57</td><td class="num">6.39</td><td class="num">1.60</td><td class="num">11.31</td><td class="num">7.54</td><td class="num">40.17</td><td class="num">33.59</td><td class="num">39.12</td><td class="num">35.74</td></tr>
+<tr><td class="center">13</td><td class="num code">2345</td><td class="name">智邦</td><td class="num">78.08</td><td class="num">33.39</td><td class="num">11.58</td><td class="num">1.78</td><td class="num">5.37</td><td class="num">10.10</td><td class="num">10.87</td><td class="num">30.07</td><td class="num">34.26</td><td class="num">57.40</td></tr>
+<tr><td class="center">14</td><td class="num code">2357</td><td class="name">華碩</td><td class="num">96.25</td><td class="num">27.57</td><td class="num">1.51</td><td class="num">3.32</td><td class="num">10.56</td><td class="num">3.01</td><td class="num">5.79</td><td class="num">21.48</td><td class="num">214.71</td><td class="num">46.05</td></tr>
+<tr><td class="center">15</td><td class="num code">2379</td><td class="name">瑞昱</td><td class="num">70.00</td><td class="num">26.45</td><td class="num">5.95</td><td class="num">3.54</td><td class="num">7.45</td><td class="num">8.16</td><td class="num">13.41</td><td class="num">19.79</td><td class="num">67.20</td><td class="num">57.16</td></tr>
+<tr><td class="center">16</td><td class="num code">2382</td><td class="name">廣達</td><td class="num">644.33</td><td class="num">24.45</td><td class="num">5.94</td><td class="num">3.08</td><td class="num">3.87</td><td class="num">7.62</td><td class="num">4.36</td><td class="num">29.23</td><td class="num">53.48</td><td class="num">75.41</td></tr>
+<tr><td class="center">17</td><td class="num code">2383</td><td class="name">台光電</td><td class="num">133.08</td><td class="num">25.61</td><td class="num">5.98</td><td class="num">2.17</td><td class="num">6.96</td><td class="num">8.14</td><td class="num">14.93</td><td class="num">58.69</td><td class="num">128.22</td><td class="num">55.10</td></tr>
+<tr><td class="center">18</td><td class="num code">2395</td><td class="name">研華</td><td class="num">22.67</td><td class="num">30.46</td><td class="num">6.76</td><td class="num">2.67</td><td class="num">2.62</td><td class="num">4.72</td><td class="num">14.83</td><td class="num">-6.71</td><td class="num">-15.62</td><td class="num">32.53</td></tr>
+<tr><td class="center">19</td><td class="num code">2412</td><td class="name">中華電</td><td class="num">191.58</td><td class="num">25.96</td><td class="num">2.53</td><td class="num">3.85</td><td class="num">1.20</td><td class="num">2.46</td><td class="num">16.87</td><td class="num">2.94</td><td class="num">1.78</td><td class="num">25.68</td></tr>
+<tr><td class="center">20</td><td class="num code">2454</td><td class="name">聯發科</td><td class="num">145.50</td><td class="num">23.69</td><td class="num">5.04</td><td class="num">4.69</td><td class="num">16.73</td><td class="num">6.83</td><td class="num">20.21</td><td class="num">23.87</td><td class="num">45.09</td><td class="num">41.03</td></tr>
+<tr><td class="center">21</td><td class="num code">2603</td><td class="name">長榮</td><td class="num">678.92</td><td class="num">8.93</td><td class="num">0.87</td><td class="num">11.56</td><td class="num">16.22</td><td class="num">6.70</td><td class="num">29.57</td><td class="num">66.61</td><td class="num">352.12</td><td class="num">35.20</td></tr>
+<tr><td class="center">22</td><td class="num code">2609</td><td class="name">陽明</td><td class="num">1353.83</td><td class="num">13.01</td><td class="num">0.75</td><td class="num">12.82</td><td class="num">4.59</td><td class="num">5.24</td><td class="num">27.69</td><td class="num">58.73</td><td class="num">27186.65</td><td class="num">27.31</td></tr>
+<tr><td class="center">23</td><td class="num code">2615</td><td class="name">萬海</td><td class="num">603.67</td><td class="num">55.30</td><td class="num">0.92</td><td class="num">3.40</td><td class="num">4.22</td><td class="num">5.07</td><td class="num">27.92</td><td class="num">61.68</td><td class="num">491.91</td><td class="num">37.63</td></tr>
+<tr><td class="center">24</td><td class="num code">2880</td><td class="name">華南金</td><td class="num">372.58</td><td class="num">15.85</td><td class="num">1.65</td><td class="num">4.15</td><td class="num">0.42</td><td class="num">2.70</td><td class="num">34.58</td><td class="num">12.25</td><td class="num">7.42</td><td class="num">94.84</td></tr>
+<tr><td class="center">25</td><td class="num code">2881</td><td class="name">富邦金</td><td class="num">386.50</td><td class="num">19.52</td><td class="num">1.26</td><td class="num">2.72</td><td class="num">2.77</td><td class="num">4.06</td><td class="num">44.97</td><td class="num">215.39</td><td class="num">424.86</td><td class="num">91.98</td></tr>
+<tr><td class="center">26</td><td class="num code">2882</td><td class="name">國泰金</td><td class="num">549.67</td><td class="num">13.47</td><td class="num">1.08</td><td class="num">2.92</td><td class="num">1.82</td><td class="num">3.14</td><td class="num">30.91</td><td class="num">21.45</td><td class="num">167.45</td><td class="num">93.24</td></tr>
+<tr><td class="center">27</td><td class="num code">2883</td><td class="name">凱基金</td><td class="num">1065.83</td><td class="num">13.28</td><td class="num">0.94</td><td class="num">2.38</td><td class="num">0.49</td><td class="num">2.85</td><td class="num">49.21</td><td class="num">316.71</td><td class="num">109.89</td><td class="num">92.30</td></tr>
+<tr><td class="center">28</td><td class="num code">2884</td><td class="name">玉山金</td><td class="num">517.83</td><td class="num">19.81</td><td class="num">1.81</td><td class="num">3.70</td><td class="num">0.41</td><td class="num">2.69</td><td class="num">34.19</td><td class="num">14.70</td><td class="num">22.44</td><td class="num">93.71</td></tr>
+<tr><td class="center">29</td><td class="num code">2885</td><td class="name">元大金</td><td class="num">408.17</td><td class="num">14.34</td><td class="num">1.37</td><td class="num">3.31</td><td class="num">0.69</td><td class="num">2.96</td><td class="num">31.74</td><td class="num">25.08</td><td class="num">55.97</td><td class="num">91.04</td></tr>
+<tr><td class="center">30</td><td class="num code">2886</td><td class="name">兆豐金</td><td class="num">393.83</td><td class="num">17.43</td><td class="num">1.70</td><td class="num">3.55</td><td class="num">0.59</td><td class="num">2.45</td><td class="num">41.08</td><td class="num">8.36</td><td class="num">3.42</td><td class="num">92.16</td></tr>
+<tr><td class="center">31</td><td class="num code">2887</td><td class="name">台新金</td><td class="num">591.33</td><td class="num">13.74</td><td class="num">1.06</td><td class="num">3.07</td><td class="num">0.35</td><td class="num">2.26</td><td class="num">23.03</td><td class="num">24.45</td><td class="num">42.45</td><td class="num">93.12</td></tr>
+<tr><td class="center">32</td><td class="num code">2890</td><td class="name">永豐金</td><td class="num">425.33</td><td class="num">13.92</td><td class="num">1.51</td><td class="num">3.06</td><td class="num">0.45</td><td class="num">2.82</td><td class="num">34.19</td><td class="num">19.61</td><td class="num">12.25</td><td class="num">93.33</td></tr>
+<tr><td class="center">33</td><td class="num code">2891</td><td class="name">中信金</td><td class="num">1302.75</td><td class="num">11.90</td><td class="num">1.52</td><td class="num">4.61</td><td class="num">0.91</td><td class="num">3.74</td><td class="num">38.68</td><td class="num">47.64</td><td class="num">36.28</td><td class="num">94.21</td></tr>
+<tr><td class="center">34</td><td class="num code">2892</td><td class="name">第一金</td><td class="num">341.42</td><td class="num">16.41</td><td class="num">1.51</td><td class="num">2.99</td><td class="num">0.46</td><td class="num">2.45</td><td class="num">35.01</td><td class="num">7.37</td><td class="num">15.45</td><td class="num">94.35</td></tr>
+<tr><td class="center">35</td><td class="num code">2912</td><td class="name">統一超</td><td class="num">26.25</td><td class="num">26.53</td><td class="num">7.41</td><td class="num">3.28</td><td class="num">2.77</td><td class="num">7.04</td><td class="num">4.08</td><td class="num">6.61</td><td class="num">8.67</td><td class="num">81.41</td></tr>
+<tr><td class="center">36</td><td class="num code">3008</td><td class="name">大立光</td><td class="num">18.33</td><td class="num">17.70</td><td class="num">2.05</td><td class="num">2.80</td><td class="num">48.54</td><td class="num">3.77</td><td class="num">44.81</td><td class="num">24.69</td><td class="num">49.90</td><td class="num">15.33</td></tr>
+<tr><td class="center">37</td><td class="num code">3017</td><td class="name">奇鋐</td><td class="num">251.50</td><td class="num">41.43</td><td class="num">10.92</td><td class="num">1.08</td><td class="num">5.31</td><td class="num">8.04</td><td class="num">12.75</td><td class="num">21.53</td><td class="num">59.04</td><td class="num">65.48</td></tr>
+<tr><td class="center">38</td><td class="num code">3034</td><td class="name">聯詠</td><td class="num">90.00</td><td class="num">14.96</td><td class="num">5.21</td><td class="num">6.01</td><td class="num">8.36</td><td class="num">7.82</td><td class="num">19.82</td><td class="num">-6.45</td><td class="num">-11.47</td><td class="num">37.61</td></tr>
+<tr><td class="center">39</td><td class="num code">3045</td><td class="name">台灣大</td><td class="num">147.00</td><td class="num">33.81</td><td class="num">5.49</td><td class="num">3.73</td><td class="num">1.14</td><td class="num">4.33</td><td class="num">7.96</td><td class="num">8.98</td><td class="num">11.11</td><td class="num">61.80</td></tr>
+<tr><td class="center">40</td><td class="num code">3231</td><td class="name">緯創</td><td class="num">1094.67</td><td class="num">23.09</td><td class="num">2.89</td><td class="num">2.38</td><td class="num">1.53</td><td class="num">5.00</td><td class="num">2.90</td><td class="num">20.79</td><td class="num">90.52</td><td class="num">69.63</td></tr>
+<tr><td class="center">41</td><td class="num code">3661</td><td class="name">世芯-KY</td><td class="num">53.75</td><td class="num">67.73</td><td class="num">9.87</td><td class="num">0.78</td><td class="num">20.38</td><td class="num">4.89</td><td class="num">12.39</td><td class="num">72.83</td><td class="num">98.53</td><td class="num">29.33</td></tr>
+<tr><td class="center">42</td><td class="num code">3711</td><td class="name">日月光投控</td><td class="num">318.50</td><td class="num">23.49</td><td class="num">2.27</td><td class="num">3.84</td><td class="num">1.88</td><td class="num">2.60</td><td class="num">5.65</td><td class="num">2.32</td><td class="num">0.76</td><td class="num">53.47</td></tr>
+<tr><td class="center">43</td><td class="num code">4904</td><td class="name">遠傳</td><td class="num">144.75</td><td class="num">27.50</td><td class="num">4.08</td><td class="num">3.78</td><td class="num">0.89</td><td class="num">3.60</td><td class="num">12.37</td><td class="num">11.81</td><td class="num">14.54</td><td class="num">52.28</td></tr>
+<tr><td class="center">44</td><td class="num code">4938</td><td class="name">和碩</td><td class="num">189.33</td><td class="num">17.36</td><td class="num">1.35</td><td class="num">4.13</td><td class="num">1.58</td><td class="num">2.10</td><td class="num">1.73</td><td class="num">-10.54</td><td class="num">17.00</td><td class="num">61.03</td></tr>
+<tr><td class="center">45</td><td class="num code">5871</td><td class="name">中租-KY</td><td class="num">169.67</td><td class="num">10.29</td><td class="num">1.61</td><td class="num">4.22</td><td class="num">3.36</td><td class="num">3.40</td><td class="num">22.89</td><td class="num">4.96</td><td class="num">-10.16</td><td class="num">82.02</td></tr>
+<tr><td class="center">46</td><td class="num code">5876</td><td class="name">上海商銀</td><td class="num">182.50</td><td class="num">14.70</td><td class="num">1.12</td><td class="num">4.21</td><td class="num">0.69</td><td class="num">1.41</td><td class="num">27.97</td><td class="num">4.65</td><td class="num">96.35</td><td class="num">89.45</td></tr>
+<tr><td class="center">47</td><td class="num code">5880</td><td class="name">合庫金</td><td class="num">219.67</td><td class="num">20.58</td><td class="num">1.60</td><td class="num">2.38</td><td class="num">0.32</td><td class="num">1.96</td><td class="num">29.96</td><td class="num">7.18</td><td class="num">12.12</td><td class="num">94.90</td></tr>
+<tr><td class="center">48</td><td class="num code">6446</td><td class="name">藥華藥</td><td class="num">47.17</td><td class="num">342.10</td><td class="num">7.00</td><td class="num">0.00</td><td class="num">2.26</td><td class="num">2.88</td><td class="num">29.08</td><td class="num">90.56</td><td class="num">452.12</td><td class="num">10.66</td></tr>
+<tr><td class="center">49</td><td class="num code">6505</td><td class="name">台塑化</td><td class="num">120.92</td><td class="num">42.96</td><td class="num">1.75</td><td class="num">3.43</td><td class="num">0.16</td><td class="num">0.44</td><td class="num">0.89</td><td class="num">-6.43</td><td class="num">54.82</td><td class="num">20.31</td></tr>
+<tr><td class="center">50</td><td class="num code">6669</td><td class="name">緯穎</td><td class="num">44.42</td><td class="num">28.84</td><td class="num">8.59</td><td class="num">1.91</td><td class="num">31.82</td><td class="num">9.68</td><td class="num">6.35</td><td class="num">53.52</td><td class="num">91.16</td><td class="num">57.38</td></tr>
+<tr><td class="center">51</td><td class="num code">6919</td><td class="name">康霈</td><td class="num">11.58</td><td class="num"></td><td class="num">32.73</td><td class="num">0.00</td><td class="num">-1.05</td><td class="num">-3.46</td><td class="num">-2237.65</td><td class="num">25.61</td><td class="num">-27.43</td><td class="num">1.85</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<script src="js/taiwan_50.js"></script>
+<footer>
+<div>©2025 投資資訊組 保留所有權利.</div>
+<div class="footer-links">
+<a href="#">常見問題</a>
+<a href="#">聯絡我們</a>
+<a href="#">社群連結</a>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>多因子智慧選股系統｜投資模擬試算</title>
+  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="css/investment_simulation.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">首頁</a>
+      <a href="#">股票分類</a>
+      <a href="#">關於我們</a>
+    </nav>
+    <div class="auth">
+      <a href="#">註冊/登入</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 首屏 -->
+    <section class="hero">
+      <h1>多因子智慧選股系統</h1>
+      <p class="subtitle">投資模擬試算</p>
+    </section>
+
+    <div class="back-link">
+      <a href="sort.html">← 返回股票分類總覽</a>
+    </div>
+
+    <!-- 功能說明：藍色使用說明框 -->
+    <section class="feature-list">
+      <ol>
+        <li><b>點欄位即可排序：</b>點表頭顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。</li>
+        <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位意義或計算方式。</li>
+        <li><b>投資模擬說明：</b>可選最多五檔股票，為每檔分配 1～100 點投資比重，系統會先檢查總和並提示目前合計點數與剩餘點數。</li>
+      </ol>
+    </section>
+
+    <!-- 投資試算設定區 -->
+    <section class="member-feature">
+      <button id="toggle-sim-panel" class="mf-btn">
+        會員功能：投資組合試算
+      </button>
+
+      <div id="sim-panel" class="sim-panel" style="display:none;">
+        <h3>投資點數設定</h3>
+        <p class="sim-desc">
+          請在下方表格中，針對欲加入投資組合的股票點擊「投資設定」欄位啟用輸入，並填寫「投資點數」（<b>1～100</b>）。<br>
+          再點一次同一格可取消選取。系統會在計算前檢查：已選股票數量（最多 <b>5 檔</b>）與點數總和是否合理。
+        </p>
+
+        <div class="sim-summary">
+          <span>目前已選股票數：<span id="selected-count">0</span> 檔</span>
+          <span>已用點數：<span id="point-sum">0</span> 點</span>
+          <span>剩餘點數：<span id="point-remain">100</span> 點</span>
+        </div>
+
+        <div class="mf-actions">
+          <button id="run-simulation" class="mf-btn primary">開始試算</button>
+          <button id="reset-simulation" class="mf-btn danger">重設</button>
+        </div>
+
+        <p class="sim-note">
+          ※ 本頁目前僅提供介面與資料呈現，實際績效運算與「0050 / 加權指數」對比邏輯可於後續接上。2025 年數值將在按下「開始試算」後再使用。
+        </p>
+
+        <!-- 結果區（先空，計算後由 JS 填入文字） -->
+        <div id="result-panel" class="result-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 表格區塊 -->
+    <section>
+      <div class="table-wrapper">
+        <table class="stock-table" aria-label="投資模擬用股票清單">
+          <thead>
+            <tr>
+              <th class="center not-sort" data-tip="此欄僅顯示目前排序順位">排序</th>
+              <th class="num code" data-tip="台灣上市公司代碼">公司代碼</th>
+              <th class="name not-sort" data-tip="公司中文名稱">公司名稱</th>
+              <th class="num" data-tip="2020 年報酬率（%）">2020</th>
+              <th class="num" data-tip="2021 年報酬率（%）">2021</th>
+              <th class="num" data-tip="2022 年報酬率（%）">2022</th>
+              <th class="num" data-tip="2023 年報酬率（%）">2023</th>
+              <th class="num" data-tip="2024 年報酬率（%）">2024</th>
+              <th class="num not-sort sim-col" data-tip="點一下啟用並輸入投資點數（1～100），再點一次可取消選取">投資設定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 1: 2059 川湖 -->
+            <tr>
+              <td class="center sort-index">1</td>
+              <td class="num code">2059</td>
+              <td class="name">川湖</td>
+              <td class="num">-15.81</td>
+              <td class="num">76.99</td>
+              <td class="num">-23.95</td>
+              <td class="num">143.53</td>
+              <td class="num">71.49</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 2: 2357 華碩 -->
+            <tr>
+              <td class="center sort-index">2</td>
+              <td class="num code">2357</td>
+              <td class="name">華碩</td>
+              <td class="num">14.99</td>
+              <td class="num">62.31</td>
+              <td class="num">-17.94</td>
+              <td class="num">91.63</td>
+              <td class="num">30.30</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 3: 2379 瑞昱 -->
+            <tr>
+              <td class="center sort-index">3</td>
+              <td class="num code">2379</td>
+              <td class="name">瑞昱</td>
+              <td class="num">71.11</td>
+              <td class="num">52.49</td>
+              <td class="num">-47.37</td>
+              <td class="num">78.98</td>
+              <td class="num">24.29</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 4: 2383 台光電 -->
+            <tr>
+              <td class="center sort-index">4</td>
+              <td class="num code">2383</td>
+              <td class="name">台光電</td>
+              <td class="num">18.76</td>
+              <td class="num">82.41</td>
+              <td class="num">-34.75</td>
+              <td class="num">127.61</td>
+              <td class="num">65.45</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 5: 2603 長榮 -->
+            <tr>
+              <td class="center sort-index">5</td>
+              <td class="num code">2603</td>
+              <td class="name">長榮</td>
+              <td class="num">228.22</td>
+              <td class="num">256.52</td>
+              <td class="num">-40.11</td>
+              <td class="num">53.95</td>
+              <td class="num">64.83</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 6: 2609 陽明 -->
+            <tr>
+              <td class="center sort-index">6</td>
+              <td class="num code">2609</td>
+              <td class="name">陽明</td>
+              <td class="num">305.69</td>
+              <td class="num">313.68</td>
+              <td class="num">-33.29</td>
+              <td class="num">7.22</td>
+              <td class="num">52.09</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 7: 2615 萬海 -->
+            <tr>
+              <td class="center sort-index">7</td>
+              <td class="num code">2615</td>
+              <td class="name">萬海</td>
+              <td class="num">196.89</td>
+              <td class="num">314.55</td>
+              <td class="num">-49.50</td>
+              <td class="num">-25.51</td>
+              <td class="num">50.08</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 8: 2881 富邦金 -->
+            <tr>
+              <td class="center sort-index">8</td>
+              <td class="num code">2881</td>
+              <td class="name">富邦金</td>
+              <td class="num">5.52</td>
+              <td class="num">87.88</td>
+              <td class="num">-17.62</td>
+              <td class="num">23.71</td>
+              <td class="num">50.57</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 9: 2882 國泰金 -->
+            <tr>
+              <td class="center sort-index">9</td>
+              <td class="num code">2882</td>
+              <td class="name">國泰金</td>
+              <td class="num">4.22</td>
+              <td class="num">54.51</td>
+              <td class="num">-30.00</td>
+              <td class="num">16.73</td>
+              <td class="num">54.43</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+            <!-- 10: 2883 凱基金 -->
+            <tr>
+              <td class="center sort-index">10</td>
+              <td class="num code">2883</td>
+              <td class="name">凱基金</td>
+              <td class="num">1.93</td>
+              <td class="num">95.64</td>
+              <td class="num">-22.42</td>
+              <td class="num">-0.40</td>
+              <td class="num">41.66</td>
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/investment_simulation.js"></script>
+
+  <footer>
+    <div>©2025 投資資訊組 保留所有權利.</div>
+    <div class="footer-links">
+      <a href="#">常見問題</a>
+      <a href="#">聯絡我們</a>
+      <a href="#">社群連結</a>
+    </div>
+  </footer>
+</body>
+</html>
