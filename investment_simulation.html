@@ -31,16 +31,16 @@
     </div>
 
     <!-- 功能說明：藍色使用說明框 -->
-    <section class="feature-list">
+    <!-- <section class="feature-list">
       <ol>
         <li><b>點欄位即可排序：</b>點表頭顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。</li>
         <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位意義或計算方式。</li>
         <li><b>投資模擬說明：</b>可選最多五檔股票，為每檔分配 1～100 點投資比重，系統會先檢查總和並提示目前合計點數與剩餘點數。</li>
       </ol>
-    </section>
+    </section> -->
 
     <!-- 投資試算設定區 -->
-    <section class="member-feature">
+    <!-- <section class="member-feature">
       <button id="toggle-sim-panel" class="mf-btn">
         會員功能：投資組合試算
       </button>
@@ -68,9 +68,9 @@
         </p>
 
         <!-- 結果區（先空，計算後由 JS 填入文字） -->
-        <div id="result-panel" class="result-panel" aria-live="polite"></div>
+        <!-- <div id="result-panel" class="result-panel" aria-live="polite"></div>
       </div>
-    </section>
+    </section> -->
 
     <!-- 表格區塊 -->
     <section>
@@ -264,6 +264,41 @@
         </table>
       </div>
     </section>
+
+
+    <table class="result-table">
+        <tr>
+            <td class="header-factor">因子投資報酬率</td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+             <td class="header-market">大盤報酬率</td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td class="header-0050">0050報酬率</td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+
   </main>
 
   <script src="js/investment_simulation.js"></script>

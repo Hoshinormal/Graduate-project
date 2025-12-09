@@ -182,6 +182,42 @@ th.th-active{ z-index:4; }
   opacity:0; pointer-events:none;
   animation:fadeInOutCenter 4s ease forwards;
 }
+
+
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse; /* 讓邊框合併，視覺較整潔 */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+   text-align: right;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,.05);
+
+}
+
+/* 欄位邊框與內距 */
+.result-table td {
+    border-bottom: #c9c9c9 1px solid;
+    padding: 8px;
+}
+
+
+.header-factor, .header-0050, .header-market {
+    background-color: #e6f3f8;
+    color: #044a5e;
+    font-weight: bold;
+    width: 40%;
+   text-align: center; /* 文字置中 */ 
+}
+
+
+
+
+
+
+
 @keyframes fadeInOutCenter{
   0%{ opacity:0; transform:translate(-50%, -20px); }
   10%,80%{ opacity:1; transform:translate(-50%, 0); }
