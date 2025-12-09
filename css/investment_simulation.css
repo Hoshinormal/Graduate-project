@@ -191,10 +191,10 @@ th.th-active{ z-index:4; }
     margin: 20px 0;
     font-family: Arial, sans-serif;
     font-size: 1.2rem;
-   text-align: right;
+    text-align: right;
     background-color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,.05);
-
+    border-radius: 10px;
 }
 
 /* 欄位邊框與內距 */
