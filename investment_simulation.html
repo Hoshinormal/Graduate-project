@@ -6,6 +6,7 @@
   <title>多因子智慧選股系統｜投資模擬試算</title>
   <link rel="stylesheet" href="test.css" />
   <link rel="stylesheet" href="css/investment_simulation.css" />
+  <link rel="stylesheet" href="css/animation.css">
 </head>
 <body>
   <header>
@@ -26,7 +27,7 @@
       <p class="subtitle">投資模擬試算</p>
     </section>
 
-    <div class="back-link">
+    <div class="back-link fade-up">
       <a href="sort.html">← 返回股票分類總覽</a>
     </div>
 
@@ -67,13 +68,13 @@
           ※ 本頁目前僅提供介面與資料呈現，實際績效運算與「0050 / 加權指數」對比邏輯可於後續接上。2025 年數值將在按下「開始試算」後再使用。
         </p>
 
-        <!-- 結果區（先空，計算後由 JS 填入文字） -->
+        結果區（先空，計算後由 JS 填入文字） -->
         <!-- <div id="result-panel" class="result-panel" aria-live="polite"></div>
       </div>
     </section> -->
 
     <!-- 表格區塊 -->
-    <section>
+    <section class="fade-up delay-2">
       <div class="table-wrapper">
         <table class="stock-table" aria-label="投資模擬用股票清單">
           <thead>
@@ -266,7 +267,7 @@
     </section>
 
 
-    <table class="result-table">
+    <table class="result-table fade-up delay-5">
         <tr>
             <td class="header-factor">因子投資報酬率</td>
 
@@ -302,7 +303,7 @@
   </main>
 
   <script src="js/investment_simulation.js"></script>
-
+ <script src="js/animation.js"></script>
   <footer>
     <div>©2025 投資資訊組 保留所有權利.</div>
     <div class="footer-links">
