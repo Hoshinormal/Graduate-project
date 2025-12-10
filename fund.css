@@ -99,10 +99,6 @@ ul {
 }
 
 footer {
-  position: fixed;          /* 固定在畫面上 */
-  bottom: 0;                /* 貼齊底部 */
-  left: 0;
-  width: 100%;              /* 佔滿整個畫面寬度 */
   background-color: #006d77;
   color: #F5FCFF;
   display: flex;
@@ -112,7 +108,6 @@ footer {
   padding: 15px;
   font-size: 14px;
   flex-wrap: wrap;
-  z-index: 100;             /* 確保不被其他內容蓋住 */
 }
 
 

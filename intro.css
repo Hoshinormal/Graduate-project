@@ -58,7 +58,8 @@ nav a {
   display: flex;
   flex-direction: column;
   width: 80%;  /* 或 100% */
-max-width: none;
+  max-width: none;
+  border: #006d75 20px groove;
 }
 
 /* container */
