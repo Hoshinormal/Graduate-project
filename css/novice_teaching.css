@@ -1,50 +1,4 @@
-header {
-  background-color: #006d77;
-  color: #F5FCFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-}
 
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  color: #F5FCFF;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.auth a {
-  color: #F5FCFF;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-footer {
-  background-color: #006d77;
-  color: #F5FCFF;
-  display: flex;               /* 改用 Flexbox */
-  justify-content: center;     /* 水平置中 */
-  align-items: center;         /* 垂直置中 */
-  gap: 30px;                   /* 文字與連結之間的間距 */
-  padding: 15px;
-  font-size: 1.2rem;
-  flex-wrap: wrap;             /* 螢幕太窄時換行 */
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-footer a {
-  color: #F5FCFF;
-  text-decoration: none;
-}
 /* ========== 1) 變數 / tokens ========== */
 :root{
   --semic-primary:#076585;
@@ -474,3 +428,10 @@ body.is-tutorial-running .table-wrapper{
   position:relative;
   z-index:902;
 }
+
+
+.back-link a {
+  width: fit-content;
+}
+.back-link{display:flex;flex-direction:column;gap:10px;}
+.back-link a{width:fit-content;}

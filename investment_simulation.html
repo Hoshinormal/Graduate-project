@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>多因子智慧選股系統｜投資模擬試算</title>
+  <title>多因子智慧選股系統｜歷史年報酬比較（2020–2024）</title>
   <link rel="stylesheet" href="test.css" />
   <link rel="stylesheet" href="css/investment_simulation.css" />
 </head>
 <body>
   <header>
     <nav>
-      <a href="#">首頁</a>
-      <a href="#">股票分類</a>
-      <a href="#">關於我們</a>
+      <a href="main.html">首頁</a>
+      <a href="novice_teaching.html">投資教學</a>
+      <a href="stock.html">股票</a>
+      <a href="investment_simulation.html">報酬率</a>
+      
     </nav>
     <div class="auth">
-      <a href="#">註冊/登入</a>
+      <a href="login.html">註冊/登入</a>
     </div>
   </header>
 
@@ -23,7 +25,7 @@
     <!-- 首屏 -->
     <section class="hero">
       <h1>多因子智慧選股系統</h1>
-      <p class="subtitle">投資模擬試算</p>
+      <p class="subtitle">歷史年報酬比較（2020–2024）</p>
     </section>
 
     <div class="back-link">
@@ -31,16 +33,18 @@
     </div>
 
     <!-- 功能說明：藍色使用說明框 -->
-    <!-- <section class="feature-list">
+    <section class="feature-list">
       <ol>
         <li><b>點欄位即可排序：</b>點表頭顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。</li>
         <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位意義或計算方式。</li>
-        <li><b>投資模擬說明：</b>可選最多五檔股票，為每檔分配 1～100 點投資比重，系統會先檢查總和並提示目前合計點數與剩餘點數。</li>
+        <li><b>年報酬資料說明：</b>本頁使用 2020–2024 年個股與指數年報酬率資料，供比較不同產業、不同公司的歷史表現；表格下方另提供 0050 ETF 與加權指數的年報酬，做為基準參考。</li>
       </ol>
-    </section> -->
+    </section>
 
     <!-- 投資試算設定區 -->
-    <!-- <section class="member-feature">
+    
+    <!-- 會員功能（投資組合試算）暫時關閉，保留原始區塊於註解中
+<section class="member-feature">
       <button id="toggle-sim-panel" class="mf-btn">
         會員功能：投資組合試算
       </button>
@@ -49,7 +53,7 @@
         <h3>投資點數設定</h3>
         <p class="sim-desc">
           請在下方表格中，針對欲加入投資組合的股票點擊「投資設定」欄位啟用輸入，並填寫「投資點數」（<b>1～100</b>）。<br>
-          再點一次同一格可取消選取。系統會在計算前檢查：已選股票數量（最多 <b>5 檔</b>）與點數總和是否合理。
+          再點一次同一格可取消選取。系統會在計算前檢查：已選股票數量（最多 <b>5 檔</b>）與點數總和是否為 <b>100 點</b>。
         </p>
 
         <div class="sim-summary">
@@ -64,13 +68,15 @@
         </div>
 
         <p class="sim-note">
-          ※ 本頁目前僅提供介面與資料呈現，實際績效運算與「0050 / 加權指數」對比邏輯可於後續接上。2025 年數值將在按下「開始試算」後再使用。
+          ※ 本頁使用 2020–2024 年資料與 2025 年上半年報酬率進行簡易試算，並提供與「0050 / 加權指數」的比較；所有結果僅供學習與模擬使用，非實際投資建議。
         </p>
 
-        <!-- 結果區（先空，計算後由 JS 填入文字） -->
-        <!-- <div id="result-panel" class="result-panel" aria-live="polite"></div>
+        
+        <div id="result-panel" class="result-panel" aria-live="polite"></div>
       </div>
-    </section> -->
+    </section>
+    -->
+
 
     <!-- 表格區塊 -->
     <section>
@@ -86,30 +92,53 @@
               <th class="num" data-tip="2022 年報酬率（%）">2022</th>
               <th class="num" data-tip="2023 年報酬率（%）">2023</th>
               <th class="num" data-tip="2024 年報酬率（%）">2024</th>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <th class="num not-sort sim-col" data-tip="點一下啟用並輸入投資點數（1～100），再點一次可取消選取">投資設定</th>
+              -->
             </tr>
           </thead>
           <tbody>
-            <!-- 1: 2059 川湖 -->
+            <!-- 1: 2303 聯電 -->
             <tr>
               <td class="center sort-index">1</td>
-              <td class="num code">2059</td>
-              <td class="name">川湖</td>
-              <td class="num">-15.81</td>
-              <td class="num">76.99</td>
-              <td class="num">-23.95</td>
-              <td class="num">143.53</td>
-              <td class="num">71.49</td>
+              <td class="num code">2303</td>
+              <td class="name">聯電</td>
+              <td class="num">201.03</td>
+              <td class="num">42.10</td>
+              <td class="num">-33.13</td>
+              <td class="num">38.72</td>
+              <td class="num">-13.50</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
             </tr>
-            <!-- 2: 2357 華碩 -->
+            <!-- 2: 2317 鴻海 -->
             <tr>
               <td class="center sort-index">2</td>
+              <td class="num code">2317</td>
+              <td class="name">鴻海</td>
+              <td class="num">6.50</td>
+              <td class="num">17.14</td>
+              <td class="num">1.05</td>
+              <td class="num">9.64</td>
+              <td class="num">80.73</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+              -->
+            </tr>
+            <!-- 3: 2357 華碩 -->
+            <tr>
+              <td class="center sort-index">3</td>
               <td class="num code">2357</td>
               <td class="name">華碩</td>
               <td class="num">14.99</td>
@@ -117,50 +146,18 @@
               <td class="num">-17.94</td>
               <td class="num">91.63</td>
               <td class="num">30.30</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
             </tr>
-            <!-- 3: 2379 瑞昱 -->
-            <tr>
-              <td class="center sort-index">3</td>
-              <td class="num code">2379</td>
-              <td class="name">瑞昱</td>
-              <td class="num">71.11</td>
-              <td class="num">52.49</td>
-              <td class="num">-47.37</td>
-              <td class="num">78.98</td>
-              <td class="num">24.29</td>
-              <td class="sim-cell">
-                <div class="sim-cell-inner">
-                  <input type="checkbox" class="row-select" />
-                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
-                </div>
-              </td>
-            </tr>
-            <!-- 4: 2383 台光電 -->
+            <!-- 4: 2603 長榮 -->
             <tr>
               <td class="center sort-index">4</td>
-              <td class="num code">2383</td>
-              <td class="name">台光電</td>
-              <td class="num">18.76</td>
-              <td class="num">82.41</td>
-              <td class="num">-34.75</td>
-              <td class="num">127.61</td>
-              <td class="num">65.45</td>
-              <td class="sim-cell">
-                <div class="sim-cell-inner">
-                  <input type="checkbox" class="row-select" />
-                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
-                </div>
-              </td>
-            </tr>
-            <!-- 5: 2603 長榮 -->
-            <tr>
-              <td class="center sort-index">5</td>
               <td class="num code">2603</td>
               <td class="name">長榮</td>
               <td class="num">228.22</td>
@@ -168,16 +165,18 @@
               <td class="num">-40.11</td>
               <td class="num">53.95</td>
               <td class="num">64.83</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
             </tr>
-            <!-- 6: 2609 陽明 -->
+            <!-- 5: 2609 陽明 -->
             <tr>
-              <td class="center sort-index">6</td>
+              <td class="center sort-index">5</td>
               <td class="num code">2609</td>
               <td class="name">陽明</td>
               <td class="num">305.69</td>
@@ -185,16 +184,18 @@
               <td class="num">-33.29</td>
               <td class="num">7.22</td>
               <td class="num">52.09</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
             </tr>
-            <!-- 7: 2615 萬海 -->
+            <!-- 6: 2615 萬海 -->
             <tr>
-              <td class="center sort-index">7</td>
+              <td class="center sort-index">6</td>
               <td class="num code">2615</td>
               <td class="name">萬海</td>
               <td class="num">196.89</td>
@@ -202,50 +203,18 @@
               <td class="num">-49.50</td>
               <td class="num">-25.51</td>
               <td class="num">50.08</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
             </tr>
-            <!-- 8: 2881 富邦金 -->
+            <!-- 7: 2883 凱基金 -->
             <tr>
-              <td class="center sort-index">8</td>
-              <td class="num code">2881</td>
-              <td class="name">富邦金</td>
-              <td class="num">5.52</td>
-              <td class="num">87.88</td>
-              <td class="num">-17.62</td>
-              <td class="num">23.71</td>
-              <td class="num">50.57</td>
-              <td class="sim-cell">
-                <div class="sim-cell-inner">
-                  <input type="checkbox" class="row-select" />
-                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
-                </div>
-              </td>
-            </tr>
-            <!-- 9: 2882 國泰金 -->
-            <tr>
-              <td class="center sort-index">9</td>
-              <td class="num code">2882</td>
-              <td class="name">國泰金</td>
-              <td class="num">4.22</td>
-              <td class="num">54.51</td>
-              <td class="num">-30.00</td>
-              <td class="num">16.73</td>
-              <td class="num">54.43</td>
-              <td class="sim-cell">
-                <div class="sim-cell-inner">
-                  <input type="checkbox" class="row-select" />
-                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
-                </div>
-              </td>
-            </tr>
-            <!-- 10: 2883 凱基金 -->
-            <tr>
-              <td class="center sort-index">10</td>
+              <td class="center sort-index">7</td>
               <td class="num code">2883</td>
               <td class="name">凱基金</td>
               <td class="num">1.93</td>
@@ -253,51 +222,121 @@
               <td class="num">-22.42</td>
               <td class="num">-0.40</td>
               <td class="num">41.66</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
               <td class="sim-cell">
                 <div class="sim-cell-inner">
                   <input type="checkbox" class="row-select" />
                   <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
                 </div>
               </td>
+              -->
+            </tr>
+            <!-- 8: 2891 中信金 -->
+            <tr>
+              <td class="center sort-index">8</td>
+              <td class="num code">2891</td>
+              <td class="name">中信金</td>
+              <td class="num">-7.68</td>
+              <td class="num">38.19</td>
+              <td class="num">-10.05</td>
+              <td class="num">33.50</td>
+              <td class="num">44.51</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+              -->
+            </tr>
+            <!-- 9: 3034 聯詠 -->
+            <tr>
+              <td class="center sort-index">9</td>
+              <td class="num code">3034</td>
+              <td class="name">聯詠</td>
+              <td class="num">75.01</td>
+              <td class="num">50.88</td>
+              <td class="num">-28.61</td>
+              <td class="num">79.14</td>
+              <td class="num">2.55</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+              -->
+            </tr>
+            <!-- 10: 3231 緯創 -->
+            <tr>
+              <td class="center sort-index">10</td>
+              <td class="num code">3231</td>
+              <td class="name">緯創</td>
+              <td class="num">15.82</td>
+              <td class="num">1.41</td>
+              <td class="num">10.34</td>
+              <td class="num">243.88</td>
+              <td class="num">8.01</td>
+              <!-- 會員功能暫停使用：投資設定欄位保留在註解中
+              <td class="sim-cell">
+                <div class="sim-cell-inner">
+                  <input type="checkbox" class="row-select" />
+                  <input type="number" class="point-input" min="1" max="100" inputmode="numeric" />
+                </div>
+              </td>
+              -->
             </tr>
           </tbody>
         </table>
       </div>
     </section>
-
-
-    <table class="result-table">
-        <tr>
-            <td class="header-factor">因子投資報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <tr>
-             <td class="header-market">大盤報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <tr>
-            <td class="header-0050">0050報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-    </table>
-
+    <!-- 基準指數區塊：因子投資 vs 0050 & 加權指數 -->
+    <section class="benchmark-section">
+      <h2 class="section-subtitle">因子投資、0050 與加權指數年報酬（2020–2024）</h2>
+      <div class="table-wrapper">
+        <table class="stock-table benchmark-table" aria-label="因子投資與指數年報酬比較">
+          <thead>
+            <tr>
+              <th class="name not-sort">指數 / 投資方式</th>
+              <th class="num" data-tip="2020 年報酬率（%）">2020</th>
+              <th class="num" data-tip="2021 年報酬率（%）">2021</th>
+              <th class="num" data-tip="2022 年報酬率（%）">2022</th>
+              <th class="num" data-tip="2023 年報酬率（%）">2023</th>
+              <th class="num" data-tip="2024 年報酬率（%）">2024</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="factor-row">
+              <td class="name">因子投資（10 檔等權重）</td>
+              <td class="num">103.84</td>
+              <td class="num">119.24</td>
+              <td class="num">-22.37</td>
+              <td class="num">53.18</td>
+              <td class="num">36.13</td>
+            </tr>
+            <tr>
+              <td class="name">0050 ETF</td>
+              <td class="num">30.11</td>
+              <td class="num">19.87</td>
+              <td class="num">-21.75</td>
+              <td class="num">26.89</td>
+              <td class="num">49.20</td>
+            </tr>
+            <tr>
+              <td class="name">加權指數（TWI）</td>
+              <td class="num">20.91</td>
+              <td class="num">22.18</td>
+              <td class="num">-22.63</td>
+              <td class="num">26.07</td>
+              <td class="num">29.05</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="benchmark-note">註：因子投資列為上方十檔個股於各年度等權重持有之平均年報酬率；0050 與加權指數僅作為基準比較，所有資料僅供學習參考，非投資建議。</p>
+    </section>
 
   </main>
 
@@ -305,10 +344,7 @@
 
   <footer>
     <div>©2025 投資資訊組 保留所有權利.</div>
-    <div class="footer-links">
-      <a href="#">常見問題</a>
-      <a href="#">聯絡我們</a>
-      <a href="#">社群連結</a>
+
     </div>
   </footer>
 </body>

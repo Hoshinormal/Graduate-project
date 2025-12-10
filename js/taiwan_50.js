@@ -15,21 +15,38 @@ function applySortClass(th, dir){
   if(dir==='desc') th.classList.add('sorted-desc');
 }
 
-// ----------- 排序彈窗 ----------- //
+// ----------- 排序彈窗（新手版） ----------- //
+function isLowBetterTH(th){
+  return th.classList.contains('low-better');
+}
+
 const pop = document.createElement('div');
 pop.className = 'sort-pop';
 pop.style.display = 'none';
-pop.innerHTML = `
-  <button class="sp-btn" data-dir="asc">▲</button>
-  <button class="sp-btn" data-dir="desc">▼</button>
-  <button class="sp-btn sp-danger" data-dir="cancel">取消</button>
-`;
 
 let activeTH = null;
+
+function buildSortPop(th){
+  const low = isLowBetterTH(th);
+  if(low){
+    // 越小越好：只留 ▲
+    pop.innerHTML = `
+      <button class="sp-btn" data-dir="asc">▲</button>
+      <button class="sp-btn sp-danger" data-dir="cancel">取消</button>
+    `;
+  }else{
+    // 越大越好：只留 ▼
+    pop.innerHTML = `
+      <button class="sp-btn" data-dir="desc">▼</button>
+      <button class="sp-btn sp-danger" data-dir="cancel">取消</button>
+    `;
+  }
+}
 
 function openPop(th){
   closePop();
   activeTH = th;
+  buildSortPop(th);
   th.classList.add('th-active');
   th.appendChild(pop);
   pop.style.display = 'flex';

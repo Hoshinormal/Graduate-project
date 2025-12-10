@@ -181,7 +181,7 @@ tr.rank-3{ background:#f3e6ff !important; }
 /* ========== 13) 表格滑動提示（置中偏上） ========== */
 .scroll-hint{
   position:absolute;
-  top:58px;
+  top:85px;
   left:50%;
   transform:translateX(-50%);
   background:rgba(7,101,133,0.95);

@@ -57,6 +57,7 @@
     let allowedSelectors = [];
     let hoverTimer = null;
     let currentHighlightTarget = null;
+    let factorStepTimer = null;
 
     function setAllowedSelectors(list) {
       allowedSelectors = (list || []).filter(Boolean);
@@ -226,6 +227,10 @@ function createTutorialUI() {
         }
         currentCleanup = null;
       }
+      if (factorStepTimer) {
+        clearTimeout(factorStepTimer);
+        factorStepTimer = null;
+      }
       if (currentHighlightTarget) {
         currentHighlightTarget.classList.remove('tutorial-target-glow');
         currentHighlightTarget = null;
@@ -348,8 +353,9 @@ function createTutorialUI() {
 
           if (thirdRow) {
             const rowRect = thirdRow.getBoundingClientRect();
-            // 在第三名列的下方保留一點間距（16px），讓前三名全部露出
-            top = scrollY + rowRect.bottom + 16;
+            // 在第三名列的「上方」顯示教學框，避免把按鈕或排序結果切到
+            // 先以第三列頂端為基準，再往上留一點間距，之後會再透過 clamp 確保不超出視窗
+            top = scrollY + rowRect.top - popRect.height - 24;
           } else {
             // 安全備援：退回原本置中偏下
             top = scrollY + Math.max(40, viewportH * 0.6 - popRect.height / 2);
@@ -403,7 +409,15 @@ function createTutorialUI() {
           top = scrollY + Math.max(40, viewportH * 0.6 - popRect.height / 2);
         }
 
-        if (!isFinite(top)) top = scrollY + 80;
+        const minTop = scrollY + 20;
+        const maxTop = scrollY + viewportH - popRect.height - 20;
+
+        if (!isFinite(top)) {
+          top = scrollY + 80;
+        } else {
+          if (top < minTop) top = minTop;
+          if (top > maxTop) top = maxTop;
+        }
         if (!isFinite(left)) left = 12;
 
         popEl.style.top = top + 'px';
@@ -564,6 +578,9 @@ function createTutorialUI() {
       // ⭐ 教學啟動時：先把整個表格區塊捲到畫面中央偏上，避免只看到一半
       const tableWrapper = document.querySelector('.table-wrapper');
       if (tableWrapper) {
+        // 無論目前表格被滑到多右邊，一律先拉回最左側，避免第一步看不到左邊欄位
+        tableWrapper.scrollLeft = 0;
+
         const rect = tableWrapper.getBoundingClientRect();
         const scrollY = window.scrollY || window.pageYOffset;
         const viewportH = window.innerHeight || document.documentElement.clientHeight;
@@ -661,13 +678,20 @@ function createTutorialUI() {
       getTHs().forEach(th => th.classList.remove('sorted-asc', 'sorted-desc', 'th-active'));
     }
 
-    function openPop(th) {
-      closePop();
-      activeTH = th;
-      th.classList.add('th-active');
-      th.appendChild(pop);
-      pop.style.display = 'flex';
-    }
+    function openPop(th){
+  closePop();
+  activeTH = th;
+  th.classList.add('th-active');
+  th.appendChild(pop);
+  pop.style.display = 'flex';
+  const best = th.dataset.best;
+  const ascBtn = pop.querySelector('button[data-dir="asc"]');
+  const descBtn = pop.querySelector('button[data-dir="desc"]');
+  if(ascBtn) ascBtn.style.display = '';
+  if(descBtn) descBtn.style.display = '';
+  if(best === 'high' && ascBtn) ascBtn.style.display = 'none';
+  if(best === 'low' && descBtn) descBtn.style.display = 'none';
+}
 
     function closePop() {
       if (activeTH) activeTH.classList.remove('th-active');
@@ -943,7 +967,9 @@ function createTutorialUI() {
         if (input) input.style.display = f.classList.contains('active') ? 'inline-block' : 'none';
         updateFactorHighlights();
 
-        // 進階教學：步驟 2-1，當勾選因子數量介於 2～3 個時，自動把提示移到「開始計算」按鈕
+        // 進階教學：步驟 2-1
+        // 選 2 個因子：啟動 3 秒倒數，若期間再加選第 3 個，立即前往下一步
+        // 選滿 3 個因子：略等 0.3 秒後直接前往下一步
         if (
           tutorialMode === 'pro' &&
           tutorialSteps &&
@@ -953,8 +979,16 @@ function createTutorialUI() {
           tutorialSteps[tutorialIndex].action === 'free-select'
         ) {
           const count = activeFactors().length;
-          if (count >= 2 && count <= 3) {
-            setTimeout(() => {
+
+          // 任何次數變化都先清掉舊的計時器
+          if (factorStepTimer) {
+            clearTimeout(factorStepTimer);
+            factorStepTimer = null;
+          }
+
+          if (count === 3) {
+            // 已選 3 個：給使用者一小點緩衝再往下一步
+            factorStepTimer = setTimeout(() => {
               if (
                 tutorialMode === 'pro' &&
                 tutorialSteps &&
@@ -966,6 +1000,20 @@ function createTutorialUI() {
                 goTutorialStep(tutorialIndex + 1);
               }
             }, 300);
+          } else if (count === 2) {
+            // 只選 2 個：啟動 3 秒倒數，讓使用者有時間決定要不要再加 1 個
+            factorStepTimer = setTimeout(() => {
+              if (
+                tutorialMode === 'pro' &&
+                tutorialSteps &&
+                tutorialIndex >= 0 &&
+                tutorialSteps[tutorialIndex] &&
+                tutorialSteps[tutorialIndex].kind === 'factor-select' &&
+                tutorialSteps[tutorialIndex].action === 'free-select'
+              ) {
+                goTutorialStep(tutorialIndex + 1);
+              }
+            }, 3000);
           }
         }
       });

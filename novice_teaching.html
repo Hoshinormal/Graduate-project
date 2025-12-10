@@ -1,58 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-Hant">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>多因子智慧選股系統｜教學示範</title>
-  <link rel="stylesheet" href="test.css" />
-  <link rel="stylesheet" href="css/novice_teaching.css" />
+  <link href="test.css" rel="stylesheet" />
+  <link href="css/novice_teaching.css" rel="stylesheet" />
 </head>
+
 <body class="nt-page">
   <header>
     <nav>
       <a href="main.html">首頁</a>
-      <a href="sort.html">股票分類</a>
+      <a href="novice_teaching.html">投資教學</a>
       <a href="stock.html">股票</a>
+      <a href="investment_simulation.html">報酬率</a>
       
     </nav>
     <div class="auth">
       <a href="login.html">註冊/登入</a>
     </div>
   </header>
-
   <main class="container">
     <section class="hero">
       <h1>多因子智慧選股系統</h1>
       <p class="subtitle">教學示範</p>
     </section>
-
     <div class="back-link">
       <a href="main.html">← 返回首頁</a>
+      <a href="taiwan_50.html">← 前往0050成分股</a>
     </div>
-
     <section class="intro-mode">
       <h2>選擇教學對象</h2>
-
       <div class="mode-row">
         <div class="mode-col">
-          <button type="button" class="chip mode-btn" data-mode="basic">
+          <button class="chip mode-btn" data-mode="basic" type="button">
             初階一般
           </button>
         </div>
         <div class="mode-col">
-          <button type="button" class="chip mode-btn" data-mode="pro">
+          <button class="chip mode-btn" data-mode="pro" type="button">
             進階專業
           </button>
           <div class="member-check-row">
             <label class="member-toggle">
-              <input type="checkbox" id="member-tutorial-check" />
+              <input id="member-tutorial-check" type="checkbox" />
               會員使用體驗 教學通過檢查
             </label>
           </div>
         </div>
       </div>
     </section>
-
     <!-- 功能說明：保留，做為新手教學文字 -->
     <section class="feature-list">
       <ol>
@@ -61,17 +61,14 @@
         <li><b>會員功能（暫時）：</b>可選擇 2～3 個因子，由系統自動計算綜合得分，新增「得分」欄位供排序。</li>
       </ol>
     </section>
-
-    <!-- 教學示範：股票清單（先只放公司代碼與名稱，其餘欄位留白示範用） -->
+    <!-- 會員功能：多因子組合設定 -->
     <section class="member-feature" id="member-demo">
-      <button id="toggle-weight-panel" class="mf-btn is-locked">
+      <button class="mf-btn is-locked" id="toggle-weight-panel">
         會員功能：多因子組合設定
       </button>
-
-      <div id="weight-panel" class="weight-panel" style="display:none;">
+      <div class="weight-panel" id="weight-panel" style="display:none;">
         <h3>多因子組合設定</h3>
         <p>請從下方欄位中選擇 <b>2～3 個因子</b>，系統會自動計算綜合得分。</p>
-
         <div class="factor-list">
           <div class="factor" data-col="3">成交量（百萬股）_月</div>
           <div class="factor low-better" data-col="4">本益比（P/E）</div>
@@ -83,209 +80,233 @@
           <div class="factor" data-col="10">營收成長率</div>
           <div class="factor" data-col="11">稅後淨利成長率</div>
           <div class="factor low-better" data-col="12">負債比率</div>
-        </div>
-
-        <div class="mf-actions">
-          <button id="apply-weight" class="mf-btn primary">開始計算</button>
-          <button id="reset-weight" class="mf-btn danger">重設</button>
+          <div class="factor low-better" data-col="13">股價營收比</div>
+          <div class="factor" data-col="14">單月營收成長率</div>
         </div>
 
         <div class="mf-note">
-          <p><b>計算方式：</b>每個選取的因子由低到高排名 1～N 分。若為 <span class="low">越低越好</span> 的因子（如 P/E、P/B、負債比率），則反轉名次。最後將 2～3 個因子的名次分數加總，作為綜合得分。</p>
-          <p class="combo">推薦組合 1：尚未設定</p>
-          <p class="combo">推薦組合 2：尚未設定</p>
+          <p><b>計算方式：</b>每個選取的因子由低到高排名 1～N 分。若為 <span class="low">越低越好</span> 的因子（如 P/E、P/B、負債比率、股價營收比），則反轉名次。最後將 2～3
+            個因子的名次分數加總，作為綜合得分。</p>
+          <p class="combo">推薦組合 1：「傳產股」最佳組合：股價營收比＋單月營收成長率 <button class="apply-combo" data-cols="13,14">套用</button></p>
+          <p class="combo">推薦組合 2：「電子股」最佳組合：股價淨值比（P/B）＋單月營收成長率 <button class="apply-combo" data-cols="5,14">套用</button>
+          </p>
           <p class="combo">推薦組合 3：杜邦模型：股價淨值比（P/B）＋股東權益報酬率（ROE）＋稅後淨利成長率
             <button class="apply-combo" data-cols="5,8,11">套用</button>
           </p>
         </div>
+        <div class="mf-actions">
+          <button class="mf-btn primary" id="apply-weight">開始計算</button>
+          <button class="mf-btn danger" id="reset-weight">重設</button>
+        </div>
       </div>
     </section>
-
-    <!-- 表格區塊：公司代碼、名稱已改成教學示範用清單，其餘欄位留空 -->
+    <!-- 表格區塊 -->
     <section>
       <div class="table-wrapper">
-        <table class="stock-table" aria-label="教學示範股票清單">
+        <table aria-label="教學示範股票清單" class="stock-table">
           <thead>
             <tr>
               <th class="center not-sort" data-tip="此欄僅顯示目前排序順位">排序</th>
-              <th id="th-code" class="num code" data-tip="台灣上市公司代碼">公司代碼</th>
+              <th class="num code" data-tip="台灣上市公司代碼" id="th-code">公司代碼</th>
               <th class="name not-sort" data-tip="公司中文名稱">公司名稱</th>
-              <th class="num" data-tip="2024 年月平均；成交量（百萬股）">成交量（百萬股）_月</th>
-              <th id="th-pe" class="num" data-tip="2024 年月平均；本益比（Price / Earnings）">本益比（P/E）</th>
-              <th class="num" data-tip="2024 年月平均；股價淨值比（Price / Book）">股價淨值比（P/B）</th>
-              <th class="num" data-tip="2024 年月平均；現金股利 ÷ 價格（%）">現金股利率</th>
-              <th class="num" data-tip="2024 年月平均；每股盈餘（Earnings Per Share）">每股盈餘（EPS）</th>
-              <th id="th-roe" class="num" data-tip="2024 年月平均；股東權益報酬率（Return on Equity）">股東權益報酬率（ROE）</th>
-              <th class="num" data-tip="2024 年月平均；稅後淨利率（Net Profit Margin）">稅後淨利率</th>
-              <th class="num" data-tip="2024 年月平均；營收成長率 Year-over-Year（%）">營收成長率</th>
-              <th class="num" data-tip="2024 年月平均；稅後淨利成長率 Year-over-Year（%）">稅後淨利成長率</th>
-              <th class="num" data-tip="2024 年月平均；負債比率（%）">負債比率</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；成交量（百萬股）">成交量（百萬股）_月</th>
+              <th class="num low-better" data-best="low" data-tip="2020～2023 年度算術平均；本益比（Price / Earnings）" id="th-pe">
+                本益比（P/E）</th>
+              <th class="num low-better" data-best="low" data-tip="2020～2023 年度算術平均；股價淨值比（Price / Book）">股價淨值比（P/B）</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；現金股利 ÷ 價格（%）">現金股利率</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；每股盈餘（Earnings Per Share）">每股盈餚（EPS）</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；股東權益報酬率（Return on Equity）" id="th-roe">
+                股東權益報酬率（ROE）</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；稅後淨利率（Net Profit Margin）">稅後淨利率</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；營收成長率 Year-over-Year（%）">營收成長率</th>
+              <th class="num" data-best="high" data-tip="2020～2023 年度算術平均；稅後淨利成長率 Year-over-Year（%）">稅後淨利成長率</th>
+              <th class="num low-better" data-best="low" data-tip="2020～2023 年度算術平均；負債比率（%）">負債比率</th>
+              <th class="num low-better" data-best="low" data-tip="2020～2023 年度股價營收比（Price / Revenue）的算術平均">股價營收比</th>
+              <th class="num" data-best="high" data-tip="單月營收成長率（Month-over-Month, %）；目前暫無資料">單月營收成長率</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="center">1</td>
-              <td class="num code">2059</td>
-              <td class="name">川湖</td>
-              <td class="num">26.33</td>
-              <td class="num">34.83</td>
-              <td class="num">6.93</td>
-              <td class="num">1.2</td>
-              <td class="num">16.15</td>
-              <td class="num">8.28</td>
-              <td class="num">60.97</td>
-              <td class="num">76.41</td>
-              <td class="num">154.17</td>
-              <td class="num">20.32</td>
+              <td class="num code">2303</td>
+              <td class="name">聯電</td>
+              <td class="num">2502.46</td>
+              <td class="num">19.31</td>
+              <td class="num">2.09</td>
+              <td class="num">5.11</td>
+              <td class="num">1.19</td>
+              <td class="num">5.08</td>
+              <td class="num">24.97</td>
+              <td class="num">12.96</td>
+              <td class="num">216.50</td>
+              <td class="num">39.14</td>
+              <td class="num">2.98</td>
+              <td class="num">12.96</td>
             </tr>
             <tr>
               <td class="center">2</td>
-              <td class="num code">2357</td>
-              <td class="name">華碩</td>
-              <td class="num">96.25</td>
-              <td class="num">27.57</td>
-              <td class="num">1.51</td>
-              <td class="num">3.32</td>
-              <td class="num">10.56</td>
-              <td class="num">3.01</td>
-              <td class="num">5.79</td>
-              <td class="num">21.48</td>
-              <td class="num">214.71</td>
-              <td class="num">46.05</td>
+              <td class="num code">2317</td>
+              <td class="name">鴻海</td>
+              <td class="num">800.65</td>
+              <td class="num">11.56</td>
+              <td class="num">1.06</td>
+              <td class="num">4.68</td>
+              <td class="num">2.37</td>
+              <td class="num">2.33</td>
+              <td class="num">2.31</td>
+              <td class="num">4.93</td>
+              <td class="num">82.06</td>
+              <td class="num">58.42</td>
+              <td class="num">0.23</td>
+              <td class="num">4.93</td>
             </tr>
             <tr>
               <td class="center">3</td>
-              <td class="num code">2379</td>
-              <td class="name">瑞昱</td>
-              <td class="num">70</td>
-              <td class="num">26.45</td>
-              <td class="num">5.95</td>
-              <td class="num">3.54</td>
-              <td class="num">7.45</td>
-              <td class="num">8.16</td>
-              <td class="num">13.41</td>
-              <td class="num">19.79</td>
-              <td class="num">67.2</td>
-              <td class="num">57.16</td>
+              <td class="num code">2357</td>
+              <td class="name">華碩</td>
+              <td class="num">72.67</td>
+              <td class="num">24.30</td>
+              <td class="num">1.11</td>
+              <td class="num">8.20</td>
+              <td class="num">8.56</td>
+              <td class="num">3.01</td>
+              <td class="num">5.36</td>
+              <td class="num">10.62</td>
+              <td class="num">90.11</td>
+              <td class="num">49.95</td>
+              <td class="num">0.52</td>
+              <td class="num">10.62</td>
             </tr>
             <tr>
               <td class="center">4</td>
-              <td class="num code">2383</td>
-              <td class="name">台光電</td>
-              <td class="num">133.08</td>
-              <td class="num">25.61</td>
-              <td class="num">5.98</td>
-              <td class="num">2.17</td>
-              <td class="num">6.96</td>
-              <td class="num">8.14</td>
-              <td class="num">14.93</td>
-              <td class="num">58.69</td>
-              <td class="num">128.22</td>
-              <td class="num">55.1</td>
+              <td class="num code">2603</td>
+              <td class="name">長榮</td>
+              <td class="num">2599.40</td>
+              <td class="num">13.73</td>
+              <td class="num">1.91</td>
+              <td class="num">18.38</td>
+              <td class="num">9.43</td>
+              <td class="num">14.94</td>
+              <td class="num">32.97</td>
+              <td class="num">31.77</td>
+              <td class="num">1530.27</td>
+              <td class="num">50.62</td>
+              <td class="num">1.04</td>
+              <td class="num">31.77</td>
             </tr>
             <tr>
               <td class="center">5</td>
-              <td class="num code">2603</td>
-              <td class="name">長榮</td>
-              <td class="num">678.92</td>
-              <td class="num">8.93</td>
-              <td class="num">0.87</td>
-              <td class="num">11.56</td>
-              <td class="num">16.22</td>
-              <td class="num">6.7</td>
-              <td class="num">29.57</td>
-              <td class="num">66.61</td>
-              <td class="num">352.12</td>
-              <td class="num">35.2</td>
+              <td class="num code">2609</td>
+              <td class="name">陽明</td>
+              <td class="num">1701.06</td>
+              <td class="num">35.34</td>
+              <td class="num">2.72</td>
+              <td class="num">14.70</td>
+              <td class="num">6.65</td>
+              <td class="num">16.69</td>
+              <td class="num">26.07</td>
+              <td class="num">20.53</td>
+              <td class="num">9927.98</td>
+              <td class="num">53.07</td>
+              <td class="num">0.94</td>
+              <td class="num">20.53</td>
             </tr>
             <tr>
               <td class="center">6</td>
-              <td class="num code">2609</td>
-              <td class="name">陽明</td>
-              <td class="num">1353.83</td>
-              <td class="num">13.01</td>
-              <td class="num">0.75</td>
-              <td class="num">12.82</td>
-              <td class="num">4.59</td>
-              <td class="num">5.24</td>
-              <td class="num">27.69</td>
-              <td class="num">58.73</td>
-              <td class="num">27186.65</td>
-              <td class="num">27.31</td>
+              <td class="num code">2615</td>
+              <td class="name">萬海</td>
+              <td class="num">609.10</td>
+              <td class="num">14.40</td>
+              <td class="num">2.66</td>
+              <td class="num">5.70</td>
+              <td class="num">5.13</td>
+              <td class="num">12.36</td>
+              <td class="num">20.42</td>
+              <td class="num">40.50</td>
+              <td class="num">670.71</td>
+              <td class="num">47.09</td>
+              <td class="num">1.49</td>
+              <td class="num">40.50</td>
             </tr>
             <tr>
               <td class="center">7</td>
-              <td class="num code">2615</td>
-              <td class="name">萬海</td>
-              <td class="num">603.67</td>
-              <td class="num">55.3</td>
-              <td class="num">0.92</td>
-              <td class="num">3.4</td>
-              <td class="num">4.22</td>
-              <td class="num">5.07</td>
-              <td class="num">27.92</td>
-              <td class="num">61.68</td>
-              <td class="num">491.91</td>
-              <td class="num">37.63</td>
+              <td class="num code">2883</td>
+              <td class="name">凱基金</td>
+              <td class="num">1059.79</td>
+              <td class="num">12.55</td>
+              <td class="num">0.98</td>
+              <td class="num">4.80</td>
+              <td class="num">0.33</td>
+              <td class="num">2.35</td>
+              <td class="num">28.16</td>
+              <td class="num">-19.79</td>
+              <td class="num">50.42</td>
+              <td class="num">92.48</td>
+              <td class="num">2.44</td>
+              <td class="num">-19.79</td>
             </tr>
             <tr>
               <td class="center">8</td>
-              <td class="num code">2881</td>
-              <td class="name">富邦金</td>
-              <td class="num">386.5</td>
-              <td class="num">19.52</td>
-              <td class="num">1.26</td>
-              <td class="num">2.72</td>
-              <td class="num">2.77</td>
-              <td class="num">4.06</td>
-              <td class="num">44.97</td>
-              <td class="num">215.39</td>
-              <td class="num">424.86</td>
-              <td class="num">91.98</td>
+              <td class="num code">2891</td>
+              <td class="name">中信金</td>
+              <td class="num">801.42</td>
+              <td class="num">10.49</td>
+              <td class="num">1.17</td>
+              <td class="num">4.77</td>
+              <td class="num">0.58</td>
+              <td class="num">2.88</td>
+              <td class="num">26.87</td>
+              <td class="num">53.61</td>
+              <td class="num">130.37</td>
+              <td class="num">94.34</td>
+              <td class="num">2.97</td>
+              <td class="num">53.61</td>
             </tr>
             <tr>
               <td class="center">9</td>
-              <td class="num code">2882</td>
-              <td class="name">國泰金</td>
-              <td class="num">549.67</td>
-              <td class="num">13.47</td>
-              <td class="num">1.08</td>
-              <td class="num">2.92</td>
-              <td class="num">1.82</td>
-              <td class="num">3.14</td>
-              <td class="num">30.91</td>
-              <td class="num">21.45</td>
-              <td class="num">167.45</td>
-              <td class="num">93.24</td>
+              <td class="num code">3034</td>
+              <td class="name">聯詠</td>
+              <td class="num">131.48</td>
+              <td class="num">14.02</td>
+              <td class="num">4.79</td>
+              <td class="num">7.68</td>
+              <td class="num">10.47</td>
+              <td class="num">11.66</td>
+              <td class="num">22.06</td>
+              <td class="num">21.64</td>
+              <td class="num">66.44</td>
+              <td class="num">39.30</td>
+              <td class="num">2.46</td>
+              <td class="num">21.64</td>
             </tr>
             <tr>
               <td class="center">10</td>
-              <td class="num code">2883</td>
-              <td class="name">凱基金</td>
-              <td class="num">1065.83</td>
-              <td class="num">13.28</td>
-              <td class="num">0.94</td>
-              <td class="num">2.38</td>
-              <td class="num">0.49</td>
-              <td class="num">2.85</td>
-              <td class="num">49.21</td>
-              <td class="num">316.71</td>
-              <td class="num">109.89</td>
-              <td class="num">92.3</td>
+              <td class="num code">3231</td>
+              <td class="name">緯創</td>
+              <td class="num">667.54</td>
+              <td class="num">13.70</td>
+              <td class="num">1.46</td>
+              <td class="num">6.37</td>
+              <td class="num">0.93</td>
+              <td class="num">4.10</td>
+              <td class="num">1.78</td>
+              <td class="num">0.53</td>
+              <td class="num">48.90</td>
+              <td class="num">76.68</td>
+              <td class="num">0.15</td>
+              <td class="num">0.53</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
-
   <script src="js/novice_teaching.js"></script>
-
-  
-   <footer>
+  <footer>
     <div>©2025 投資資訊組 保留所有權利.</div>
 
     </div>
   </footer>
 </body>
+
 </html>
