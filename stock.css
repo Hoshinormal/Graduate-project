@@ -154,6 +154,7 @@ nav a {
   border: none;
   cursor: pointer;
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .pill.active {
