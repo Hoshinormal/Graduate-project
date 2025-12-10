@@ -41,6 +41,8 @@ nav a {
   font-size: 14px;
 }
 
+
+
 h1 {
   text-align: center;
   margin-top: 40px;
@@ -52,9 +54,10 @@ h1 {
   max-width: 1200px;         /* 框最大寬度 */
   margin: 40px auto;         /* 垂直間距 + 水平置中 */
   background: rgba(249, 255, 255, 0.95); /* 半透明白色背景 */
-  border-radius: 16px;       /* 圓角 */
+  border-radius: 10px;       /* 圓角 */
   box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 陰影 */
   padding: 20px 30px;        /* 內邊距 */
+  border: #006d75 20px groove;
 }
 
 
@@ -129,3 +132,6 @@ footer a {
   font-size: 1.5rem;
   color: #004f52;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
