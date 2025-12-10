@@ -85,6 +85,8 @@ h2 {
   border-left: 5px solid #006d75;
   padding-left: 10px;
   margin-bottom: 15px;
+  color: #007BFF;
+  font-weight: bold;
 }
 
 ul {
