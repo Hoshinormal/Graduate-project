@@ -10,8 +10,7 @@ const factorDetails = {
         short: '全球最大的晶圓代工廠',
         feature: '技術領先、市場占有率高',
         taiwan50: '61.53%',
-        trend: '長期穩健成長',
-        chart: '<img src="img/2330.png" style="max-width:100%;height:auto;" />',
+        chart: '<img src="img/2330.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.tsmc.com'
     },
     '2887台新新光金': {
@@ -20,8 +19,7 @@ const factorDetails = {
         short: '以銀行及保險業務為主的金融集團',
         feature: '資本穩健、金融服務多元',
         taiwan50: '0.71%',
-        trend: '推動數位金融與海外布局',
-        chart: '<img src="charts/2887.png" alt="2887 台新新光金股價圖">',
+        chart: '<img src="img/2887.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.taishin.com.tw'
     },
     '2891中信金': {
@@ -30,8 +28,7 @@ const factorDetails = {
         short: '中信金控',
         feature: '穩健經營',
         taiwan50: '1.34%',
-        trend: '穩定',
-        chart: '-',
+        chart: '<img src="img/2891.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.ctbcholding.com/'
     },
     '2883凱基金': {
@@ -40,8 +37,7 @@ const factorDetails = {
         short: '凱基金控',
         feature: '多元業務',
         taiwan50: '0.43%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2883.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.kgi.com/'
     },
     '2884玉山金': {
@@ -50,8 +46,7 @@ const factorDetails = {
         short: '玉山金控',
         feature: '銀行與證券業務',
         taiwan50: '0.81%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2884.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.esunfhc.com/'
     },
     '2317鴻海': {
@@ -60,8 +55,7 @@ const factorDetails = {
         short: '全球代工巨頭',
         feature: '製造能力強',
         taiwan50: '4.8%',
-        trend: '成長穩健',
-        chart: '-',
+        chart: '<img src="img/2317.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.foxconn.com'
     },
     '2890永豐金': {
@@ -70,8 +64,7 @@ const factorDetails = {
         short: '永豐金控',
         feature: '銀行與證券',
         taiwan50: '0.56%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2890.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.sinotrade.com.tw/'
     },
     '2886兆豐金': {
@@ -80,8 +73,7 @@ const factorDetails = {
         short: '兆豐金控',
         feature: '銀行及保險',
         taiwan50: '0.82%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2886.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.megaholdings.com.tw/'
     },
     '2303聯電': {
@@ -90,8 +82,7 @@ const factorDetails = {
         short: '晶圓代工',
         feature: '穩定技術',
         taiwan50: '0.96%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2303.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.umc.com'
     },
     '2002中鋼': {
@@ -100,8 +91,7 @@ const factorDetails = {
         short: '中鋼公司',
         feature: '鋼鐵製造',
         taiwan50: '0.37%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2002.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.csc.com.tw'
     },
     '2885元大金': {
@@ -110,8 +100,7 @@ const factorDetails = {
         short: '元大金控',
         feature: '證券與銀行',
         taiwan50: '0.69%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2885.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.yuanta.com/'
     },
     '2892第一金': {
@@ -120,8 +109,7 @@ const factorDetails = {
         short: '第一金控',
         feature: '銀行業務',
         taiwan50: '0.52',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2892.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.firstholding.com.tw/'
     },
     '5880合庫金': {
@@ -130,8 +118,7 @@ const factorDetails = {
         short: '合作金庫金控',
         feature: '銀行及投資',
         taiwan50: '0.43%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/5880.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.tcfhc.com.tw/'
     },
     '2882國泰金': {
@@ -140,8 +127,7 @@ const factorDetails = {
         short: '國泰金控',
         feature: '保險與銀行',
         taiwan50: '1.09%',
-        trend: '穩定成長',
-        chart: '-',
+        chart: '<img src="img/2882.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.cathayholdings.com.tw'
     },
     '2880華南金': {
@@ -150,8 +136,7 @@ const factorDetails = {
         short: '華南金控',
         feature: '銀行業務',
         taiwan50: '0.49%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2880.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.hnfhc.com.tw/'
     },
     '2881富邦金': {
@@ -160,8 +145,7 @@ const factorDetails = {
         short: '富邦金控',
         feature: '保險與投資',
         taiwan50: '1.35%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2881.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.fubon.com'
     },
     '1303南亞': {
@@ -170,8 +154,7 @@ const factorDetails = {
         short: '南亞塑膠',
         feature: '化學原料',
         taiwan50: '0.58%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/1303.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.nanya.com.tw'
     },
     '1216統一': {
@@ -180,8 +163,7 @@ const factorDetails = {
         short: '統一企業',
         feature: '食品與飲料',
         taiwan50: '0.64%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/1216.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.uni-president.com.tw'
     },
     '1301台塑': {
@@ -190,8 +172,7 @@ const factorDetails = {
         short: '台塑集團',
         feature: '化學製造',
         taiwan50: '0.32%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/1301.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.fpg.com.tw'
     },
     '2412中華電': {
@@ -200,8 +181,7 @@ const factorDetails = {
         short: '中華電信',
         feature: '電信服務',
         taiwan50: '0.86%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2412.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.cht.com.tw'
     },
     '5876上海商銀': {
@@ -210,8 +190,7 @@ const factorDetails = {
         short: '上海商業銀行',
         feature: '銀行業務',
         taiwan50: '0.26%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/5876.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.scsb.com.tw/'
     },
     '3711日月光投控': {
@@ -220,8 +199,7 @@ const factorDetails = {
         short: '日月光投控',
         feature: '封測與代工',
         taiwan50: '1.3%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3711.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.aspeed.com.tw'
     },
     '3231緯創': {
@@ -230,8 +208,7 @@ const factorDetails = {
         short: '緯創資通',
         feature: '電子製造',
         taiwan50: '0.77%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3231.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.wistron.com'
     },
     '2382廣達': {
@@ -240,8 +217,7 @@ const factorDetails = {
         short: '廣達電腦',
         feature: '筆電製造',
         taiwan50: '1.34%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2382.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.quanta.com'
     },
     '2301光寶科': {
@@ -250,8 +226,7 @@ const factorDetails = {
         short: '光寶科技',
         feature: '電子零組件',
         taiwan50: '0.54%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2301.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.liteon.com'
     },
     '4938和碩': {
@@ -260,8 +235,7 @@ const factorDetails = {
         short: '和碩聯合科技',
         feature: '代工組裝',
         taiwan50: '0.24%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/4938.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.pegatroncorp.com'
     },
     '2308台達電': {
@@ -270,8 +244,7 @@ const factorDetails = {
         short: '台達電子',
         feature: '電源管理與自動化',
         taiwan50: '3.34%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2308.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.deltaww.com'
     },
     '4904遠傳': {
@@ -280,8 +253,7 @@ const factorDetails = {
         short: '遠傳電信',
         feature: '電信服務',
         taiwan50: '0.27%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/4904.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.fetnet.net.tw'
     },
     '2609陽明': {
@@ -290,8 +262,7 @@ const factorDetails = {
         short: '陽明海運',
         feature: '航運服務',
         taiwan50: '0.16%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2609.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.yangming.com'
     },
     '2327國巨': {
@@ -300,8 +271,7 @@ const factorDetails = {
         short: '國巨',
         feature: '被動元件製造',
         taiwan50: '0.63%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2327.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.yageo.com'
     },
     '5871中租-KY': {
@@ -310,8 +280,7 @@ const factorDetails = {
         short: '中租控股',
         feature: '租賃服務',
         taiwan50: '0.26%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/5871.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.chaileaseholding.com/'
     },
     '2454聯發科': {
@@ -320,8 +289,7 @@ const factorDetails = {
         short: '聯發科技',
         feature: 'IC設計',
         taiwan50: '3.57%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2454.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.mediatek.com'
     },
     '3045台灣大': {
@@ -330,8 +298,7 @@ const factorDetails = {
         short: '台灣大哥大',
         feature: '電信服務',
         taiwan50: '0.26%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3045.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.taiwanmobile.com'
     },
     '2615萬海': {
@@ -340,8 +307,7 @@ const factorDetails = {
         short: '萬海航運',
         feature: '航運服務',
         taiwan50: '0.2%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2615.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.tonymarine.com'
     },
     '6505台塑化': {
@@ -350,8 +316,7 @@ const factorDetails = {
         short: '台塑化',
         feature: '化學製造',
         taiwan50: '0.11%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/6505.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.fpc.com.tw'
     },
     '2603長榮': {
@@ -360,8 +325,7 @@ const factorDetails = {
         short: '長榮海運',
         feature: '航運服務',
         taiwan50: '0.34%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2603.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.evergreen-marine.com'
     },
     '6919康霈': {
@@ -370,8 +334,7 @@ const factorDetails = {
         short: '康霈生技',
         feature: '生技藥品',
         taiwan50: '0.28%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/6919.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.caliwaybiopharma.com/'
     },
     '2357華碩': {
@@ -380,8 +343,7 @@ const factorDetails = {
         short: '華碩電腦',
         feature: '筆電與主機板',
         taiwan50: '0.73',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2357.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.asus.com'
     },
     '3034聯詠': {
@@ -390,8 +352,7 @@ const factorDetails = {
         short: '聯詠科技',
         feature: '顯示晶片',
         taiwan50: '0.39%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3034.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.pixart.com.tw'
     },
     '2912統一超': {
@@ -400,8 +361,7 @@ const factorDetails = {
         short: '統一超商',
         feature: '便利商店',
         taiwan50: '0.22%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2912.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.7-11.com.tw'
     },
     '2345智邦': {
@@ -410,8 +370,7 @@ const factorDetails = {
         short: '智邦科技',
         feature: '網通設備',
         taiwan50: '0.85%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2345.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.abil.com.tw'
     },
     '2379瑞昱': {
@@ -420,8 +379,7 @@ const factorDetails = {
         short: '瑞昱半導體',
         feature: '網路晶片',
         taiwan50: '0.45%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2379.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.realtek.com'
     },
     '2395研華': {
@@ -430,8 +388,7 @@ const factorDetails = {
         short: '研華科技',
         feature: '工業自動化',
         taiwan50: '0.23%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2395.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.advantech.com'
     },
     '3017奇鋐': {
@@ -440,8 +397,7 @@ const factorDetails = {
         short: '奇鋐科技',
         feature: 'IC設計',
         taiwan50: '0.77%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3017.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.avc.co/zh-tw/'
     },
     '2383台光電': {
@@ -450,8 +406,7 @@ const factorDetails = {
         short: '台光電',
         feature: '光電元件',
         taiwan50: '0.69%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2383.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.emctw.com/zh-TW'
     },
     '2207和泰車': {
@@ -460,8 +415,7 @@ const factorDetails = {
         short: '和泰汽車',
         feature: '汽車製造與銷售',
         taiwan50: '0.28%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2207.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.hotaimotor.com.tw/'
     },
     '6669緯穎': {
@@ -470,8 +424,7 @@ const factorDetails = {
         short: '緯穎科技',
         feature: '伺服器代工',
         taiwan50: '0.83%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/6669.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.wiwynn.com/'
     },
     '3008大立光': {
@@ -480,8 +433,7 @@ const factorDetails = {
         short: '大立光電',
         feature: '光學鏡頭',
         taiwan50: '0.36%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3008.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.largan.com'
     },
     '3661世芯-KY': {
@@ -490,8 +442,7 @@ const factorDetails = {
         short: '世芯科技',
         feature: 'IC設計',
         taiwan50: '0.44%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/3661.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.alchip.com/tw'
     },
     '2059川湖': {
@@ -500,8 +451,7 @@ const factorDetails = {
         short: '川湖科技',
         feature: '被動元件',
         taiwan50: '0.34%',
-        trend: '-',
-        chart: '-',
+        chart: '<img src="img/2059.png" style="max-width: 100%; height: auto;">',
         url: 'https://www.kingslide.com/'
     }
 }
