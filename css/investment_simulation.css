@@ -16,6 +16,7 @@ button:hover {
   background-color: #004f56;
 }
 
+
 .btnwrapper {
   display: flex;
   gap: 20px;
@@ -34,8 +35,8 @@ button:hover {
 
 /* ========== 2) 首屏（Hero） ========== */
 .hero{ text-align:center; margin-bottom:20px; animation:hero-in .55s ease both; }
-.hero h1{ margin:0; font-size:32px; color:#03485A; letter-spacing:1px; }
-.hero .subtitle{ margin:6px 0 0; font-size:20px; color:var(--sim-primary); opacity:.9; }
+.hero h1{ margin:0; font-size:3rem; color:#03485A; letter-spacing:1px; }
+.hero .subtitle{ margin:6px 0 0; font-size:1.5rem; color:var(--sim-primary); opacity:.9; }
 @keyframes hero-in{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
 
 /* ========== 返回上一頁連結 ========== */
@@ -43,7 +44,7 @@ button:hover {
 .back-link a{
   display:inline-block; padding:8px 14px;
   background:#eef7fb; border:1px solid #b9d9ea; border-radius:10px;
-  color:#076585; font-size:14px; text-decoration:none;
+  color:#076585; font-size:1.2rem; text-decoration:none;
   transition:background 0.2s ease, transform 0.1s ease;
 }
 .back-link a:hover{ background:#d7edf6; transform:translateY(-1px); }
@@ -52,7 +53,7 @@ button:hover {
 .feature-list{
   margin:0 0 14px; padding:14px 16px;
   background:#eef7fb; border:1px dashed #b9d9ea; border-radius:14px;
-  color:#40606F; line-height:1.75; font-size:14px;
+  color:#40606F; line-height:1.75; font-size:1.4rem;
 }
 .feature-list ol{ margin:0; padding-left:22px; }
 .feature-list li{ margin:6px 0; }
@@ -65,7 +66,7 @@ button:hover {
 .mf-btn{
   display:inline-block; padding:10px 16px; margin:10px 0;
   background:#eef7fb; border:1px solid #b9d9ea; border-radius:10px;
-  color:#076585; font-size:14px; cursor:pointer;
+  color:#076585; font-size:1.2rem; cursor:pointer;
   transition:background 0.2s ease, transform 0.1s ease;
 }
 .mf-btn:hover{ background:#d7edf6; transform:translateY(-1px); }
@@ -113,7 +114,7 @@ button:hover {
 .table-wrapper{
   background:#fff; border-radius:var(--card-radius);
   box-shadow:var(--card-shadow); padding:18px; overflow-x:auto; overflow-y:visible;
-  position:relative;
+  position:relative;font-size: 1.4rem;
 }
 .stock-table{ width:100%; border-collapse:separate; border-spacing:0; }
 
@@ -135,7 +136,7 @@ th.not-sort{ cursor:default; }
 .stock-table thead th:hover::after{
   content:attr(data-tip);
   position:absolute; left:50%; top:100%; transform:translate(-50%,8px);
-  background:#073642; color:#fff; font-size:12px; line-height:1.2;
+  background:#073642; color:#fff; font-size:1.2rem; line-height:1.2;
   padding:6px 8px; border-radius:8px; white-space:nowrap;
   box-shadow:0 8px 18px rgba(0,0,0,.18);
 }

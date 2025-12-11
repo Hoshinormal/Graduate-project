@@ -80,7 +80,7 @@ span{
 .btn-groups {
   display: flex;
   justify-content: center;
-  gap: 5vw; /* 左右間距 */
+  gap: 10vw; /* 左右間距 */
   flex-wrap: wrap;
   margin-top: 30px;
   min-width: 100vw;
