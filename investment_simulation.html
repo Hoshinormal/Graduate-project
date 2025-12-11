@@ -34,13 +34,20 @@
     </div>
 
     <!-- 功能說明：藍色使用說明框 -->
-    <section class="feature-list">
+    <section class="feature-list fade-up delay-1">
       <ol>
         <li><b>點欄位即可排序：</b>點表頭顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。</li>
         <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位意義或計算方式。</li>
         <li><b>年報酬資料說明：</b>本頁使用 2020–2024 年個股與指數年報酬率資料，供比較不同產業、不同公司的歷史表現；表格下方另提供 0050 ETF 與加權指數的年報酬，做為基準參考。</li>
       </ol>
     </section>
+
+
+    <div class="btnwrapper fade-up delay-2">
+      <button>雙因子</button>
+      <button>三因子</button>
+    </div>
+
 
     <!-- 投資試算設定區 -->
     
@@ -72,13 +79,8 @@
           ※ 本頁使用 2020–2024 年資料與 2025 年上半年報酬率進行簡易試算，並提供與「0050 / 加權指數」的比較；所有結果僅供學習與模擬使用，非實際投資建議。
         </p>
 
-<<<<<<< HEAD
-        
-        <div id="result-panel" class="result-panel" aria-live="polite"></div>
-=======
         結果區（先空，計算後由 JS 填入文字） -->
         <!-- <div id="result-panel" class="result-panel" aria-live="polite"></div>
->>>>>>> 5cc67124b266fc1497d7ff4004c6a1ed65a91e8f
       </div>
     </section>
     -->
@@ -344,43 +346,6 @@
       </div>
       <p class="benchmark-note">註：因子投資列為上方十檔個股於各年度等權重持有之平均年報酬率；0050 與加權指數僅作為基準比較，所有資料僅供學習參考，非投資建議。</p>
     </section>
-
-
-
-    <table class="result-table fade-up delay-5">
-        <tr>
-            <td class="header-factor">因子投資報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <tr>
-             <td class="header-market">大盤報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <tr>
-            <td class="header-0050">0050報酬率</td>
-
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-    </table>
-
-
-
   </main>
 
   <script src="js/investment_simulation.js"></script>

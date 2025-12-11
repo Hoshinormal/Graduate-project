@@ -1,3 +1,29 @@
+button {
+  background-color: #005F6B;
+  box-shadow: inset 0 4px 0 #004f56;
+  color: #F5FCFF;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  /* font-size: 24px; */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap; /* 不換行 */
+}
+
+button:hover {
+  background-color: #004f56;
+}
+
+.btnwrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 0.5rem;
+}
+
 /* ========== 1) 變數 / tokens ========== */
 :root{
   --sim-primary:#076585;
