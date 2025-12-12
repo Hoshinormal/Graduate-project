@@ -41,6 +41,15 @@ footer{
 .footer-links{ display:flex; gap:20px; }
 footer a{ color:#F5FCFF; text-decoration:none; }
 
+
+.num{
+  text-align: right;
+  padding-right: 8px;
+}
+th.num{
+  text-align: right;
+}
+
 /* ========= RWD（僅保留共用段落） ========= */
 @media (max-width:1024px){
   .container{ padding:32px 16px 64px; }
