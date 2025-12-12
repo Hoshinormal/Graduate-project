@@ -624,41 +624,121 @@ function renderDetail(key) {
 
 
 // 從 Yahoo Finance 取得最新股價並更新畫面
+// async function fetchYahooPrice(symbol, fallbackPrice) {
+//     const priceSpan = document.getElementById('current-price');
+//     if (!priceSpan) return;
+
+//     try {
+//         const response = await fetch(
+//             `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbol)}`
+//         );
+//         if (!response.ok) throw new Error('Network response was not ok');
+
+//         const json = await response.json();
+//         const result = json?.quoteResponse?.result?.[0];
+
+//         const price =
+//             (result && (result.regularMarketPrice ?? result.postMarketPrice ?? result.preMarketPrice)) ??
+//             null;
+
+//         if (price != null) {
+//             // 四捨五入到小數點兩位
+//             priceSpan.textContent = price.toFixed(2);
+//         } else if (fallbackPrice) {
+//             priceSpan.textContent = fallbackPrice;
+//         } else {
+//             priceSpan.textContent = '-';
+//         }
+//     } catch (error) {
+//         console.error('取得 Yahoo 股價失敗：', error);
+//         if (fallbackPrice) {
+//             priceSpan.textContent = fallbackPrice;
+//         } else {
+//             priceSpan.textContent = '-';
+//         }
+//     }
+// }
+
 async function fetchYahooPrice(symbol, fallbackPrice) {
     const priceSpan = document.getElementById('current-price');
     if (!priceSpan) return;
 
+    // 1. 改用 v8 Chart API (比 v7 quote 更穩定，不容易被擋)
+    // 加上 timestamp 防止瀏覽器讀到舊的快取資料
+    const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&events=history&_=${new Date().getTime()}`;
+    
+    // 使用 corsproxy.io 繞過瀏覽器限制
+    const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
+
     try {
-        const response = await fetch(
-            `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbol)}`
-        );
-        if (!response.ok) throw new Error('Network response was not ok');
+        const response = await fetch(proxyUrl);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
         const json = await response.json();
-        const result = json?.quoteResponse?.result?.[0];
+        
+        // v8 API 的資料結構比較深，要從 meta 裡面抓
+        const meta = json?.chart?.result?.[0]?.meta;
+        
+        if (!meta) throw new Error('Yahoo API 回傳格式錯誤或無資料');
 
-        const price =
-            (result && (result.regularMarketPrice ?? result.postMarketPrice ?? result.preMarketPrice)) ??
-            null;
+        // 取得價格與昨日收盤價
+        const price = meta.regularMarketPrice;
+        const previousClose = meta.chartPreviousClose;
+
+        // 計算漲跌 (v8 meta 裡面沒有直接給漲跌額，要自己算)
+        const change = price - previousClose;
 
         if (price != null) {
             // 四捨五入到小數點兩位
             priceSpan.textContent = price.toFixed(2);
-        } else if (fallbackPrice) {
-            priceSpan.textContent = fallbackPrice;
-        } else {
-            priceSpan.textContent = '-';
-        }
+
+            // 加入漲跌顏色邏輯 (台股：紅漲綠跌)
+            priceSpan.style.fontWeight = 'bold';
+            priceSpan.style.padding = '2px 6px';
+            priceSpan.style.borderRadius = '4px';
+            
+            if (change > 0) {
+                // 漲：紅色字，淺紅底
+                priceSpan.style.color = '#e63946'; 
+                priceSpan.style.backgroundColor = '#ffe5e5';
+                priceSpan.textContent += ' ▲';
+            } else if (change < 0) {
+                // 跌：綠色字，淺綠底
+                priceSpan.style.color = '#2a9d8f';
+                priceSpan.style.backgroundColor = '#e0f2f1';
+                priceSpan.textContent += ' ▼';
+            } else {
+                // 平盤：灰色
+                priceSpan.style.color = '#555';
+                priceSpan.style.backgroundColor = 'transparent';
+            }
+            
+            // 成功抓到資料，不用做其他事了
+            return; 
+
+        } 
+        
+        // 如果 price 是 null，就會往下走到 fallback
+
     } catch (error) {
-        console.error('取得 Yahoo 股價失敗：', error);
-        if (fallbackPrice) {
-            priceSpan.textContent = fallbackPrice;
-        } else {
-            priceSpan.textContent = '-';
-        }
+        // ★ 如果失敗，這裡會在瀏覽器 F12 的 Console 印出具體原因
+        console.error('即時股價抓取失敗，已切換至備用價格。錯誤原因：', error);
+    }
+
+    // --- 失敗後的備案 (Fallback) ---
+    if (fallbackPrice) {
+        priceSpan.textContent = fallbackPrice;
+        priceSpan.style.color = ''; 
+        priceSpan.style.backgroundColor = '';
+        // 可以在這裡加個小標記，自己除錯用 (Demo前可以拿掉)
+        // priceSpan.title = "目前顯示的是備用價格 (即時連線失敗)"; 
+    } else {
+        priceSpan.textContent = '-';
     }
 }
-
 // 使用 TradingView Widget 繪製股價圖表
 // 使用 TradingView Widget 繪製股價圖表
 
