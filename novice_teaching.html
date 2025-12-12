@@ -8,6 +8,7 @@
   <title>多因子智慧選股系統｜教學示範</title>
   <link href="test.css" rel="stylesheet" />
   <link href="css/novice_teaching.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/animation.css" />
 </head>
 
 <body class="nt-page">
@@ -28,11 +29,11 @@
       <h1>多因子智慧選股系統</h1>
       <p class="subtitle">教學示範</p>
     </section>
-    <div class="back-link">
+    <div class="back-link fade-up">
       <a href="main.html">← 返回首頁</a>
       <a href="taiwan_50.html">← 前往0050成分股</a>
     </div>
-    <section class="intro-mode">
+    <section class="intro-mode fade-up">
       <h2>選擇教學對象</h2>
       <div class="mode-row">
         <div class="mode-col">
@@ -54,7 +55,7 @@
       </div>
     </section>
     <!-- 功能說明：保留，做為新手教學文字 -->
-    <section class="feature-list">
+    <section class="feature-list fade-up">
       <ol>
         <li><b>點欄位即可排序：</b>點一次顯示小選單（<code>▲</code> 遞增、<code>▼</code> 遞減、<code>取消</code>），點表格外即可收起。預設依「公司代碼」由小到大。</li>
         <li><b>欄位說明 Tooltip：</b>將滑鼠移到表頭，會顯示該欄位計算方式或意義，方便快速理解。</li>
@@ -62,7 +63,7 @@
       </ol>
     </section>
     <!-- 會員功能：多因子組合設定 -->
-    <section class="member-feature" id="member-demo">
+    <section class="member-feature fade-up delay-1" id="member-demo">
       <button class="mf-btn is-locked" id="toggle-weight-panel">
         會員功能：多因子組合設定
       </button>
@@ -102,7 +103,7 @@
     </section>
     <!-- 表格區塊 -->
     <section>
-      <div class="table-wrapper">
+      <div class="table-wrapper fade-up delay-1">
         <table aria-label="教學示範股票清單" class="stock-table">
           <thead>
             <tr>
@@ -302,6 +303,7 @@
     </section>
   </main>
   <script src="js/novice_teaching.js"></script>
+  <script src="js/animation.js"></script>
   <footer>
     <div>©2025 投資資訊組 保留所有權利.</div>
 

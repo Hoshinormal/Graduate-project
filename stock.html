@@ -7,6 +7,68 @@
     <title>多因子智慧選股系統 — 因子介紹</title>
     <link rel="stylesheet" href="stock.css" />
     <link rel="stylesheet" href="css/animation.css" />
+
+    <style>
+      .chart-hint{
+        margin:10px 0 12px;
+        padding:10px 12px;
+        border-radius:12px;
+        border:1px solid #b9d9ea;
+        background:#eef7fb;
+        color:#05526b;
+        font-size:14px;
+        line-height:1.5;
+      }
+      .chart-hint strong{ color:#03485A; }
+      .chart-hint .hint-row{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .chart-hint .hint-text{ flex:1; min-width:240px; }
+      .chart-hint .hint-actions{ display:flex; gap:8px; align-items:center; }
+      .chart-hint .hint-jump{
+        appearance:none;
+        border:none;
+        border-radius:999px;
+        padding:8px 12px;
+        background:#076585;
+        color:#fff;
+        cursor:pointer;
+        font-size:13px;
+        box-shadow:0 4px 12px rgba(0,0,0,.12);
+        white-space:nowrap;
+      }
+      .chart-hint .hint-jump:hover{ background:#044a5e; }
+      .chart-hint .hint-arrow{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        font-size:13px;
+        color:#05526b;
+        opacity:.9;
+        white-space:nowrap;
+      }
+      .chart-hint .hint-arrow i{
+        display:inline-block;
+        font-style:normal;
+        animation:hint-bounce 1.2s ease-in-out infinite;
+      }
+      @keyframes hint-bounce{
+        0%,100%{ transform:translateY(0); }
+        50%{ transform:translateY(4px); }
+      }
+      .chart-frame{
+        width:100%;
+        height:600px;
+        border:none;
+        border-radius:12px;
+        background:#fff;
+      }
+    </style>
+    
 </head>
 
 <body>
