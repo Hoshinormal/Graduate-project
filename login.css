@@ -3,11 +3,12 @@
   font-family: "regular", "Microsoft JhengHei", sans-serif;  /* 可依需求換字體  */
 }
 
-html,body  {
+html,body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
+
 
 .layout{
   display: flex;
@@ -41,16 +42,15 @@ nav a {
   text-decoration: none;
   font-size: 14px;
 }
-body{
-  width: 100%;
-  height: 104;
-  justify-content: space-between;
-  opacity: 1;
-  /* padding-top: 30px;
-  padding-right: 20px;
-  padding-bottom: 30px;
-  padding-left: 20px; */
-  background: linear-gradient(116.89deg, #E3F2FD 40.02%, #A3DAFF 99.91%);
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #e4fcff, #4492c2);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 footer {
