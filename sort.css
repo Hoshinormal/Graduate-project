@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #e4fcff, #4492c2);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 /* ============ sort.html 專屬樣式 ============ */
 
 /* 此頁用到的變數（卡片高、精選色） */

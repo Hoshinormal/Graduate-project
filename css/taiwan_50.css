@@ -1,3 +1,14 @@
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #e4fcff, #4492c2);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* ========== 1) 變數 / tokens ========== */
 :root{
   --semic-primary:#076585;

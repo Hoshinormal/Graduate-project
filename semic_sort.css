@@ -18,6 +18,17 @@ nav a {
   font-size: 16px;
 }
 
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(to bottom right, #e4fcff, #4492c2);
+  color: 00487C;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .auth a {
   color: #F5FCFF;
   text-decoration: none;
