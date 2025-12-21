@@ -170,6 +170,7 @@ footer {
     margin-top: 80px;
     border-top: 3px solid #2b66ff;
     flex-shrink: 0; /* 不被壓縮 */
+    width: 100%;
 }
 
 .footer-container.single-line {
