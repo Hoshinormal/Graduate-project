@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專題簡介</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="team.html">組員資料</a>
+            <a href="https://hoshinormal.github.io/Graduate-project/main.html">專案系統展示</a>
+        </nav>
+    </header>
+
+    <!-- 主內容 -->
+    <div class="container">
+
+        <h1>多因子智慧選股系統 — 專題簡介</h1>
+        <div class="subtitle-line"></div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" data-target="tab1">專題緣起</div>
+            <div class="tab" data-target="tab2">專題特色</div>
+            <div class="tab" data-target="tab3">專題貢獻</div>
+        </div>
+
+        <!-- ====== Tab 1 ====== -->
+        <div id="tab1" class="tab-content active">
+            <h2>一、專題緣起</h2>
+            <p>
+                台灣投資市場快速成長，但投資新手普遍面臨資訊太多卻無法判斷的困境。
+                上市櫃公司超過千家，財報、研究報告、產業資訊龐雜，加上社群平台投資建議五花八門，
+                造成新手容易受到情緒影響、追高殺低，形成資訊過載與判斷失準。
+            </p>
+
+            <p>
+                因子投資（Factor Investing）近年受到廣泛討論，在學術界已有數十年研究基礎，
+                且已證實許多因子如價值因子、動能因子、品質因子能有效解釋股票長期報酬。
+                Fama 教授更因因子理論榮獲諾貝爾經濟學獎，顯示其重要性。
+            </p>
+
+            <p>
+                然而多因子模型通常以學術語言呈現，對一般民眾難以理解。
+                本專題希望打造一個平台，讓第一次投資的人也能理解「什麼是好股票」，
+                並透過視覺化方式呈現因子計算結果，降低學術與實務之間的落差。
+            </p>
+        </div>
+
+        <!-- ====== Tab 2 ====== -->
+        <div id="tab2" class="tab-content">
+            <h2>二、專題特色</h2>
+
+            <h3>1. 多因子統合模型</h3>
+            <p>
+                整合價值、動能、品質、營運基本面等多個關鍵因子，計算股票的綜合評分，
+                讓使用者能以客觀方式找出「真正好股票」，避免盲從與追漲殺跌。
+            </p>
+
+            <h3>2. 商務級視覺化介面</h3>
+            <p>
+                採用深藍系專業質感設計，以清晰間距、分區與色塊強調選股結果，
+                讓使用者能快速辨識資料重點。
+            </p>
+
+            <h3>3. 新手與老手雙模式</h3>
+            <ul>
+                <li><b>新手模式：</b>提供推薦因子組合、逐步教學、與自動化排序。</li>
+                <li><b>老手模式：</b>可自行調整因子權重，打造專屬策略。</li>
+            </ul>
+
+            <h3>4. 台灣50資料庫</h3>
+            <p>
+                完整收錄台灣50成分股，提供每家公司詳細介紹、產業資料、公司特色、趨勢圖，
+                並搭配因子排序，讓使用者能快速掌握市場主流企業。
+            </p>
+
+           
+        </div>
+
+        <!-- ====== Tab 3 ====== -->
+        <div id="tab3" class="tab-content">
+            <h2>三、專題貢獻</h2>
+
+            <h3>（一）學術界貢獻</h3>
+            <p>
+                本系統將學術研究中的多因子模型視覺化，讓理論不再僅停留在論文中，
+                而能實際應用於大眾投資教育。平台同時整理因子資料、製作示例比較，
+                適合作為課堂教材或研究工具。
+            </p>
+
+            <h3>（二）實務界貢獻</h3>
+            <p>
+                本系統提供透明化、可解釋的選股流程，降低投資人依賴明牌或情緒判斷的風險。
+                將複雜財務數據簡化為可理解的排序與分數，提升投資決策品質，
+                並具備未來與 API 整合、回測系統串接的擴充能力。
+            </p>
+
+            
+        </div>
+    </div>
+
+    <!-- ====== Footer ====== -->
+    <footer>
+    <div class="footer-container single-line">
+
+        <h3>多因子智慧選股系統</h3>
+        <p>專題開發團隊 — 資管四乙</p>
+        <p>本系統以教育推廣為目的，非投資建議。</p>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 多因子智慧選股系統 | All Rights Reserved.
+    </div>
+</footer>
+
+    <!-- JS：Tab 切換 -->
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                contents.forEach(c => c.classList.remove("active"));
+                document.getElementById(tab.dataset.target).classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
