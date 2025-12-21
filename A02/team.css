@@ -10,10 +10,11 @@ header{
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: gray;
+    background-color: #0f1a2b;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
+
 nav {
     display: flex;
     justify-content: center;
@@ -25,18 +26,17 @@ nav {
 
 nav a{
     text-decoration: none;
-    color: white;
+    color: #dce3f1;
     font-size: 1.5rem;
     font-weight: bold;
-    display: inline-block;
     padding: 10px 20px;
-    transition: background-color 0.3s, border 0.3s;
-}
-nav a:hover {
-    background-color: #555;
-    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+nav a:hover {
+    background-color: #1e2f4d;
+    border-radius: 5px;
+}
 body {
     /* background: var(--bg-color);
     color: var(--text-main); */
@@ -173,4 +173,41 @@ h2{
     margin: 0;
     position: relative;
     z-index: 1;
+}
+footer {
+    background: #0f1a2b;
+    color: #ebf1ff;
+    padding: 30px 0 15px;
+    margin-top: 80px;
+    border-top: 3px solid #2b66ff;
+    flex-shrink: 0; /* 不被壓縮 */
+}
+
+.footer-container.single-line {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;     /* 內容置中 */
+    align-items: center;          /* 垂直置中 */
+    gap: 40px;                    /* 三個項目的間距 */
+    flex-wrap: wrap;              /* 小螢幕自動換行 */
+}
+
+.footer-container.single-line h3,
+.footer-container.single-line p {
+    margin: 0;
+    font-size: 1.1rem;
+    white-space: nowrap; /* 確保不會因空白而換行 */
+    color: #bbd4ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    color: #bbd4ff;
+    border-top: 1px solid #22304a;
+    font-size: 0.9rem;
 }
